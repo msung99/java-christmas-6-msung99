@@ -14,4 +14,12 @@ public class CountTest {
         Assertions.assertThatThrownBy(() -> Count.of(count))
                 .isInstanceOf(IllegalArgumentException.class);
     }
+
+    @ParameterizedTest
+    @DisplayName("입력ㅇ받은 메뉴의 개수가 숫자 형식이 아닌 경우 예외가 발생한다.")
+    @ValueSource(strings = {"a1", "b", "12c3"})
+    void testCountParse(String count){
+        Assertions.assertThatThrownBy(() -> Count.of(count))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
 }
