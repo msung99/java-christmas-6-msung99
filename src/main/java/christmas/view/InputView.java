@@ -3,9 +3,11 @@ package christmas.view;
 import camp.nextstep.edu.missionutils.Console;
 
 public class InputView {
-    public int readDate(){
-        System.out.println("12월 중 식당 예상 방문 날짜는 언제인가요? (숫자만 입력해 주세요!)");
-        String input = Console.readLine();
-        return Integer.parseInt(input);
+    private static final String EVENT_START_INTRO_MESSAGE = "안녕하세요! 우테코 식당 12월 이벤트 플래너입니다.";
+    private static final String REQUIRE_EXPECTED_VISIT_DATE_MESSAGE = "12월 중 식당 예상 방문 날짜는 언제인가요? (숫자만 입력해 주세요!)";
+    public String readDate(){
+        System.out.println(EVENT_START_INTRO_MESSAGE);
+        System.out.println(REQUIRE_EXPECTED_VISIT_DATE_MESSAGE);
+        return Console.readLine();
     }
 }
