@@ -22,4 +22,12 @@ public class OrderParserTest {
         Assertions.assertThatThrownBy(() -> OrderParser.parseOrderUnits(input))
                 .isInstanceOf(IllegalArgumentException.class);
     }
+
+    @ParameterizedTest
+    @DisplayName("공백을 입력하는 경우 예외가 발생한다.")
+    @ValueSource(strings = {"", " ", "    "})
+    void testOrderParseWithNothing(String input){
+        Assertions.assertThatThrownBy(() -> OrderParser.parseOrderUnits(input))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
 }
