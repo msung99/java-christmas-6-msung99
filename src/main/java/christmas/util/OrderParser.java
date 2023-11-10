@@ -14,6 +14,7 @@ public class OrderParser {
     private static final int ORDER_ITEM_SIZE = 2;
 
     public static Map<Menu, Count> parseOrderUnits(String input) {
+        validateEmptySpace(input);
         Map<Menu, Count> order = new HashMap<>();
         Arrays.stream(input.split(ITEM_DELIMITER)).forEach(item -> {
             Map.Entry<Menu, Count> unit = splitItem(item);
@@ -30,6 +31,12 @@ public class OrderParser {
 
     private static void validateItemSize(List<String> units){
         if (units.size() != ORDER_ITEM_SIZE) {
+            throw new OrderItemParseException();
+        }
+    }
+
+    private static void validateEmptySpace(String input){
+        if(input.contains(" ")){
             throw new OrderItemParseException();
         }
     }
