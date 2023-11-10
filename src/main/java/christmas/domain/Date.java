@@ -19,7 +19,7 @@ public class Date {
         return new Date(parsedInput);
     }
 
-    public static void validateNumeric(String date){
+    private static void validateNumeric(String date){
         try{
             Integer.parseInt(date);
         }catch (NumberFormatException e){
@@ -27,7 +27,7 @@ public class Date {
         }
     }
 
-    public static void validateOutOfRange(int date){
+    private static void validateOutOfRange(int date){
         if(date > MAX_DATE || date < MIN_DATE){
             throw new DateOutOfRangeException();
         }
