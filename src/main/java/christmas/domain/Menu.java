@@ -1,9 +1,10 @@
 package christmas.domain;
 
 public class Menu {
-    private String name;
+    private final Name name;
+
     private Menu(String name){
-        this.name = name;
+        this.name = Name.of(name);
     }
 
     public static Menu of(String name){
