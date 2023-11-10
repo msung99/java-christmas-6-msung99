@@ -5,9 +5,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Order {
-    private final Map<Menu, Count> order;
+    private final Map<Menu, Quantity> order;
 
-    private Order(Map<Menu, Count> order){
+    private Order(Map<Menu, Quantity> order){
         this.order = new HashMap<>(order);
     }
 

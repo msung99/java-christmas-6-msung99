@@ -3,17 +3,17 @@ package christmas.domain;
 import christmas.exception.NumberParseException;
 import christmas.exception.OrderItemFormatException;
 
-public class Count {
+public class Quantity {
     private final int count;
     private static final int MIN_COUNT = 1;
 
-    private Count(int count){
+    private Quantity(int count){
         validateOutOfRange(count);
         this.count = count;
     }
 
-    public static Count of(String count){
-        return new Count(convertedNumber(count));
+    public static Quantity of(String count){
+        return new Quantity(convertedNumber(count));
     }
 
     private static int convertedNumber(String count){
