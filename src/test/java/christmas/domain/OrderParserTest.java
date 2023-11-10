@@ -14,4 +14,12 @@ public class OrderParserTest {
         Assertions.assertThatThrownBy(() -> OrderParser.parseOrderUnits(input))
                 .isInstanceOf(IllegalArgumentException.class);
     }
+
+    @ParameterizedTest
+    @DisplayName("구분자 , 를 생략하는 경우 예외가 발생한다.")
+    @ValueSource(strings = {"티본스테이크-1바비큐립-1,초코케이크-2,제로콜라-1", "티본스테이크-1,바비큐립-1,초코케이크-2제로콜라1"})
+    void testOrderParseSkipItemDelimiter(String input){
+        Assertions.assertThatThrownBy(() -> OrderParser.parseOrderUnits(input))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
 }
