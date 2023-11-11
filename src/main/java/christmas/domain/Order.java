@@ -1,5 +1,6 @@
 package christmas.domain;
 
+import christmas.domain.menu.Menu;
 import christmas.util.OrderParser;
 import java.util.HashMap;
 import java.util.Map;

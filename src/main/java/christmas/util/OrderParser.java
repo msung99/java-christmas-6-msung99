@@ -1,7 +1,7 @@
 package christmas.util;
 
 import christmas.domain.Quantity;
-import christmas.domain.Menu;
+import christmas.domain.menu.Menu;
 import christmas.exception.OrderItemFormatException;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -26,7 +26,7 @@ public class OrderParser {
     private static Map.Entry<Menu, Quantity> splitItem(String item) {
         List<String> units = List.of(item.split(UNIT_DELIMITER));
         validateItemSize(units);
-        return Map.entry(Menu.of(units.get(0)), Quantity.of(units.get(1)));
+        return Map.entry(Menu.from(units.get(0)), Quantity.of(units.get(1)));
     }
 
     private static void validateItemSize(List<String> units){
