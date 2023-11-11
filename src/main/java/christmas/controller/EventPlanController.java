@@ -18,7 +18,7 @@ public class EventPlanController {
         Amount amount = getTotalOrderAmounts(order.getOrder());
 
         if (amount.isEventActivate()) {
-            // TODO: 이벤트, 할인 적용 기능 구현
+
         }
     }
 
