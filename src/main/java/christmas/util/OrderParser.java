@@ -2,7 +2,7 @@ package christmas.util;
 
 import christmas.domain.Quantity;
 import christmas.domain.menu.Menu;
-import christmas.exception.OrderItemFormatException;
+import christmas.exception.InvalidOrderException;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -31,13 +31,13 @@ public class OrderParser {
 
     private static void validateItemSize(List<String> units){
         if (units.size() != ORDER_ITEM_SIZE) {
-            throw new OrderItemFormatException();
+            throw new InvalidOrderException();
         }
     }
 
     private static void validateEmptySpace(String input){
         if(input.contains(" ")){
-            throw new OrderItemFormatException();
+            throw new InvalidOrderException();
         }
     }
 }

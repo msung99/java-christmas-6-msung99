@@ -1,7 +1,9 @@
 package christmas.repository;
 
 import christmas.domain.menu.Menu;
+import christmas.domain.menu.MenuName;
 import christmas.domain.menu.MenuType;
+import christmas.exception.InvalidOrderException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -21,6 +23,14 @@ public class MenuRepository {
 
     public static MenuRepository getInstance(){
         return menuRepository;
+    }
+
+    public Menu findByName(String name) {
+        return menus.values().stream()
+                .flatMap(List::stream)
+                .filter(menu -> menu.getName().equals(MenuName.from(name)))
+                .findFirst()
+                .orElseThrow(InvalidOrderException::new);
     }
 
     private List<Menu> initAppetizer() {

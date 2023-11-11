@@ -1,7 +1,7 @@
 package christmas.domain;
 
 import christmas.exception.NumberParseException;
-import christmas.exception.OrderItemFormatException;
+import christmas.exception.InvalidOrderException;
 
 public class Quantity {
     private final int count;
@@ -26,7 +26,7 @@ public class Quantity {
 
     private static void validateOutOfRange(int count){
         if(count < MIN_COUNT) {
-            throw new OrderItemFormatException();
+            throw new InvalidOrderException();
         }
     }
 }
