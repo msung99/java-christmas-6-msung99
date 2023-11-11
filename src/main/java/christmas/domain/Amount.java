@@ -1,7 +1,7 @@
-package christmas.domain.menu;
+package christmas.domain;
 
-import christmas.domain.Quantity;
-import java.util.Map;
+import christmas.domain.menu.Menu;
+import christmas.domain.menu.MenuPrice;
 
 public class Amount {
     private final int amount;

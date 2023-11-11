@@ -3,7 +3,7 @@ package christmas.controller;
 import christmas.domain.Date;
 import christmas.domain.Order;
 import christmas.domain.Quantity;
-import christmas.domain.menu.Amount;
+import christmas.domain.Amount;
 import christmas.domain.menu.Menu;
 import christmas.view.InputView;
 import christmas.view.OutputView;
