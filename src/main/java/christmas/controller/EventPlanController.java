@@ -16,6 +16,10 @@ public class EventPlanController {
         Date date = Date.of(inputView.readDate());
         Order order = orderMenu(date);
         Amount amount = getTotalOrderAmounts(order.getOrder());
+
+        if (amount.isEventActivate()) {
+            // TODO: 이벤트, 할인 적용 기능 구현
+        }
     }
 
     private Order orderMenu(Date date){

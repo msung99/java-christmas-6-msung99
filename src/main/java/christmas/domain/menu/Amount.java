@@ -5,6 +5,7 @@ import java.util.Map;
 
 public class Amount {
     private final int amount;
+    private static final int EVENT_ACTIVATE_MIN_AMOUNT = 10000;
 
     public Amount(int amount) {
         this.amount = amount;
@@ -21,5 +22,9 @@ public class Amount {
 
     public int getAmount() {
         return amount;
+    }
+
+    public boolean isEventActivate(){
+        return amount >= EVENT_ACTIVATE_MIN_AMOUNT;
     }
 }
