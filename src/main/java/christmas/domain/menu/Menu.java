@@ -1,6 +1,7 @@
 package christmas.domain.menu;
 
 import christmas.repository.MenuRepository;
+import java.util.Objects;
 
 public class Menu {
     private final MenuName name;
@@ -26,5 +27,17 @@ public class Menu {
 
     public MenuName getName() {
         return name;
+    }
+
+    @Override
+    public boolean equals(Object object){
+        if(this == object){
+            return true;
+        }
+        if(object == null || getClass() != object.getClass()){
+            return false;
+        }
+        Menu otherMenu = (Menu) object;
+        return name.equals(otherMenu.name) && price.equals(otherMenu.price);
     }
 }

@@ -10,4 +10,16 @@ public class MenuPrice {
     public static MenuPrice from(int price){
         return new MenuPrice(price);
     }
+
+    @Override
+    public boolean equals(Object object){
+        if(this == object){
+            return true;
+        }
+        if(object == null || getClass() != object.getClass()){
+            return false;
+        }
+        MenuPrice otherPrice = (MenuPrice) object;
+        return this.price == otherPrice.price;
+    }
 }
