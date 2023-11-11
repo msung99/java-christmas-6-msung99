@@ -26,11 +26,13 @@ public class OrderParser {
     private static Map.Entry<Menu, Quantity> splitItem(String item) {
         List<String> units = List.of(item.split(UNIT_DELIMITER));
         validateItemSize(units);
+        System.out.println("===============================6666");
         return Map.entry(Menu.from(units.get(0)), Quantity.of(units.get(1)));
     }
 
     private static void validateItemSize(List<String> units){
         if (units.size() != ORDER_ITEM_SIZE) {
+            System.out.println("oijqwoieqoiejoiqwejioqwjoiqwjoieoqiwje");
             throw new InvalidOrderException();
         }
     }

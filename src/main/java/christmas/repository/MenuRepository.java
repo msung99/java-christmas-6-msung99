@@ -40,7 +40,7 @@ public class MenuRepository {
     }
 
     private List<Menu> initMain(){
-        return Arrays.asList(Menu.of("티븐스테이크", 55000),
+        return Arrays.asList(Menu.of("티본스테이크", 55000),
                 Menu.of("바비큐립", 54000),
                 Menu.of("해산물파스타", 35000),
                 Menu.of("크리스마스파스타", 25000));

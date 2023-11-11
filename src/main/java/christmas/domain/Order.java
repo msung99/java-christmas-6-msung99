@@ -18,14 +18,18 @@ public class Order {
     }
 
     public static Order of(String order){
-        return new Order(OrderParser.parseOrderUnits(order));
+        Map<Menu, Quantity> orders = OrderParser.parseOrderUnits(order);
+        validateOverSize(orders);
+        return new Order(orders);
     }
 
-    private void validateOverSize(Map<Menu, Quantity> order){
-        if(order.size() > MAX_ORDER_SIZE){
+    private static void validateOverSize(Map<Menu, Quantity> order) {
+        if (order.values().stream().mapToInt(Quantity::getQuantity).sum() > MAX_ORDER_SIZE) {
             throw new MaxOrderSizeException();
         }
     }
+
+
 
     private void validateOnlyBeverage(){
         // TODO: 음료만 주문했는지 검증

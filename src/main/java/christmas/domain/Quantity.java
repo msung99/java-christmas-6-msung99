@@ -4,29 +4,33 @@ import christmas.exception.NumberParseException;
 import christmas.exception.InvalidOrderException;
 
 public class Quantity {
-    private final int count;
+    private final int quantity;
     private static final int MIN_COUNT = 1;
 
-    private Quantity(int count){
-        validateOutOfRange(count);
-        this.count = count;
+    private Quantity(int quantity){
+        validateOutOfRange(quantity);
+        this.quantity = quantity;
     }
 
-    public static Quantity of(String count){
-        return new Quantity(convertedNumber(count));
+    public static Quantity of(String quantity){
+        return new Quantity(convertedNumber(quantity));
     }
 
-    private static int convertedNumber(String count){
+    private static int convertedNumber(String quantity){
         try{
-            return Integer.parseInt(count);
+            return Integer.parseInt(quantity);
         } catch (NumberFormatException e) {
             throw new NumberParseException();
         }
     }
 
-    private static void validateOutOfRange(int count){
-        if(count < MIN_COUNT) {
+    private static void validateOutOfRange(int quantity){
+        if(quantity < MIN_COUNT) {
             throw new InvalidOrderException();
         }
+    }
+
+    public int getQuantity() {
+        return quantity;
     }
 }
