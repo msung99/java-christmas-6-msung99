@@ -22,4 +22,8 @@ public class MenuName {
         MenuName otherName = (MenuName) object;
         return name.equals(otherName.name);
      }
+
+    public String getName() {
+        return name;
+    }
 }

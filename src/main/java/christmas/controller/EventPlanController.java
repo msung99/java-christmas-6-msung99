@@ -20,5 +20,6 @@ public class EventPlanController {
 
     private void orderMenu(){
         Order order = Order.of(inputView.readOrder());
+        outputView.printMenu(order);
     }
 }

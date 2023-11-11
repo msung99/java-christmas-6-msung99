@@ -40,4 +40,6 @@ public class Menu {
         Menu otherMenu = (Menu) object;
         return name.equals(otherMenu.name) && price.equals(otherMenu.price);
     }
+
+
 }

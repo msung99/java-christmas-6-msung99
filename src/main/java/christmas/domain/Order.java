@@ -39,4 +39,8 @@ public class Order {
             throw new OnlyBeverageException();
         }
     }
+
+    public Map<Menu, Quantity> getOrder() {
+        return order;
+    }
 }
