@@ -25,7 +25,7 @@ public class Menu {
         return new Menu(name, price);
     }
 
-    public MenuName getName() {
+    public MenuName getMenuName() {
         return name;
     }
 

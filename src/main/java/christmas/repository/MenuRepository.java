@@ -31,7 +31,7 @@ public class MenuRepository {
     public Menu findByName(String name) {
         return menus.values().stream()
                 .flatMap(List::stream)
-                .filter(menu -> menu.getName().equals(MenuName.from(name)))
+                .filter(menu -> menu.getMenuName().equals(MenuName.from(name)))
                 .findFirst()
                 .orElseThrow(InvalidOrderException::new);
     }

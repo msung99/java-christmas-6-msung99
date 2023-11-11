@@ -32,4 +32,8 @@ public class Date {
             throw new DateOutOfRangeException();
         }
     }
+
+    public int getDate() {
+        return date;
+    }
 }

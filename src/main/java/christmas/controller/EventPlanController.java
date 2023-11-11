@@ -11,15 +11,16 @@ public class EventPlanController {
     public void runPlanner(){
         initDatas();
         Date date = Date.of(inputView.readDate());
-        orderMenu();
+        Order order = orderMenu(date);
     }
 
     private void initDatas(){
         // TODO: 기본 데이터 초기화
     }
 
-    private void orderMenu(){
+    private Order orderMenu(Date date){
         Order order = Order.of(inputView.readOrder());
-        outputView.printMenu(order);
+        outputView.printMenu(order, date);
+        return order;
     }
 }
