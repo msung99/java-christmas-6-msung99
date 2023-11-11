@@ -22,4 +22,8 @@ public class MenuPrice {
         MenuPrice otherPrice = (MenuPrice) object;
         return this.price == otherPrice.price;
     }
+
+    public int getPrice() {
+        return price;
+    }
 }

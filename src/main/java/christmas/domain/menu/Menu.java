@@ -41,5 +41,7 @@ public class Menu {
         return name.equals(otherMenu.name) && price.equals(otherMenu.price);
     }
 
-
+    public MenuPrice getPrice() {
+        return price;
+    }
 }
