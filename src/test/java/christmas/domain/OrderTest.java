@@ -26,4 +26,12 @@ public class OrderTest {
         Assertions.assertThatThrownBy(() -> Order.of(order))
                 .isInstanceOf(IllegalArgumentException.class);
     }
+
+    @ParameterizedTest
+    @DisplayName("음료만 주문한 경우 예외가 발생한다.")
+    @ValueSource(strings = {"레드와인-1,제로콜라-1"})
+    public void testOrderOnlyBeverage(String order){
+        Assertions.assertThatThrownBy(() -> Order.of(order))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
 }

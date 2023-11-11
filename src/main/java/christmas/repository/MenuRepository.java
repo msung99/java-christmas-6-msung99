@@ -12,7 +12,7 @@ import java.util.Map;
 
 public class MenuRepository {
     private final Map<MenuType, List<Menu>> menus = new HashMap<>();
-    private static final MenuRepository menuRepository = new MenuRepository();
+    private static final MenuRepository menuRepository = null;
 
     private MenuRepository(){
         menus.put(MenuType.APPETIZER, initAppetizer());
@@ -22,6 +22,9 @@ public class MenuRepository {
     }
 
     public static MenuRepository getInstance(){
+        if(menuRepository == null) {
+            return new MenuRepository();
+        }
         return menuRepository;
     }
 
