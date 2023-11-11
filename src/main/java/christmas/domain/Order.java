@@ -1,18 +1,24 @@
 package christmas.domain;
 
 import christmas.domain.menu.Menu;
+import christmas.domain.menu.MenuType;
 import christmas.exception.MaxOrderSizeException;
+import christmas.exception.OnlyBeverageException;
+import christmas.repository.MenuRepository;
 import christmas.util.OrderParser;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 public class Order {
     private final Map<Menu, Quantity> order;
     private static final int MAX_ORDER_SIZE = 20;
+    private static final MenuRepository menuRepository = MenuRepository.getInstance();
 
     private Order(Map<Menu, Quantity> order){
         validateOverSize(order);
-        validateOnlyBeverage();
+        validateOnlyBeverage(order.keySet());
         this.order = new HashMap<>(order);
     }
 
@@ -28,7 +34,9 @@ public class Order {
         }
     }
 
-    private void validateOnlyBeverage(){
-        // TODO: 음료만 주문했는지 검증
+    private void validateOnlyBeverage(Set<Menu> orderMenus) {
+        if (orderMenus.stream().noneMatch(menu -> menuRepository.findTypeByMenu(menu) != MenuType.BEVERAGE)) {
+            throw new OnlyBeverageException();
+        }
     }
 }

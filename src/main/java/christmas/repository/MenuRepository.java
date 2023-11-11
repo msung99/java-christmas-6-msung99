@@ -33,6 +33,15 @@ public class MenuRepository {
                 .orElseThrow(InvalidOrderException::new);
     }
 
+    public MenuType findTypeByMenu(Menu menu) {
+        return menus.entrySet().stream()
+                .filter(entry -> entry.getValue().contains(menu))
+                .map(Map.Entry::getKey)
+                .findFirst()
+                .orElseThrow(() -> new InvalidOrderException());
+    }
+
+
     private List<Menu> initAppetizer() {
         return Arrays.asList(Menu.of("양동이수프", 6000),
                 Menu.of("타파스", 5500),
