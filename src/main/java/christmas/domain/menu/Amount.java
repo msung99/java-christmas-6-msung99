@@ -18,4 +18,8 @@ public class Amount {
     public int getPlusOrderAmount(MenuPrice menuPrice, Quantity quantity){
         return menuPrice.getPrice() * quantity.getQuantity();
     }
+
+    public int getAmount() {
+        return amount;
+    }
 }

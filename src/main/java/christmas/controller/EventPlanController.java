@@ -29,6 +29,7 @@ public class EventPlanController {
         for(Map.Entry<Menu, Quantity> orderUnit : order.entrySet()){
             amount = amount.plusOrderAmounts(orderUnit.getKey(), orderUnit.getValue());
         }
+        outputView.printAmountBeforeDiscount(amount);
         return amount;
     }
 }
