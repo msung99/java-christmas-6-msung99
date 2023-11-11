@@ -29,7 +29,7 @@ public class OrderTest {
 
     @ParameterizedTest
     @DisplayName("음료만 주문한 경우 예외가 발생한다.")
-    @ValueSource(strings = {"레드와인-1,제로콜라-1"})
+    @ValueSource(strings = {"레드와인-1,제로콜라-1", "레드와인-3,샴페인-1", "레드와인-1,제로콜라-2,샴페인-3"})
     public void testOrderOnlyBeverage(String order){
         Assertions.assertThatThrownBy(() -> Order.of(order))
                 .isInstanceOf(IllegalArgumentException.class);
