@@ -7,20 +7,30 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 public class OrderParser {
     private static final String ITEM_DELIMITER = ",";
     private static final String UNIT_DELIMITER = "-";
     private static final int ORDER_ITEM_SIZE = 2;
+    private static final String EMPTY_SPACE = " ";
 
     public static Map<Menu, Quantity> parseOrderUnits(String input) {
         validateEmptySpace(input);
         Map<Menu, Quantity> order = new HashMap<>();
+
         Arrays.stream(input.split(ITEM_DELIMITER)).forEach(item -> {
             Map.Entry<Menu, Quantity> unit = splitItem(item);
+            checkMenuDuplication(order.keySet(), unit.getKey());
             order.put(unit.getKey(), unit.getValue());
         });
         return order;
+    }
+
+    private static void checkMenuDuplication(Set<Menu> orders, Menu curMenu){
+        if (orders.contains(curMenu)) {
+            throw new InvalidOrderException();
+        }
     }
 
     private static Map.Entry<Menu, Quantity> splitItem(String item) {
@@ -36,7 +46,7 @@ public class OrderParser {
     }
 
     private static void validateEmptySpace(String input){
-        if(input.contains(" ")){
+        if(input.contains(EMPTY_SPACE)){
             throw new InvalidOrderException();
         }
     }
