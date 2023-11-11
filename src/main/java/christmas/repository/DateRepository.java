@@ -12,6 +12,14 @@ import java.util.stream.IntStream;
 
 public class DateRepository {
     private final Map<DateType, List<Date>> dates = new HashMap<>();
+    private static final DateRepository dateRepository = null;
+
+    public static DateRepository getInstance() {
+        if(dateRepository == null) {
+            return new DateRepository();
+        }
+        return dateRepository;
+    }
 
     private DateRepository(){
         dates.put(DateType.D_DAY, initDDay());
