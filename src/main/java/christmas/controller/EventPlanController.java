@@ -9,13 +9,8 @@ public class EventPlanController {
     private final InputView inputView = new InputView();
     private final OutputView outputView = new OutputView();
     public void runPlanner(){
-        initDatas();
         Date date = Date.of(inputView.readDate());
         Order order = orderMenu(date);
-    }
-
-    private void initDatas(){
-        // TODO: 기본 데이터 초기화
     }
 
     private Order orderMenu(Date date){
