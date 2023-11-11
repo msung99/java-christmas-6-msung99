@@ -5,7 +5,7 @@ import christmas.repository.MenuRepository;
 public class Menu {
     private final MenuName name;
     private final MenuPrice price;
-    private final MenuRepository menuRepository = MenuRepository.getInstance();
+    private static final MenuRepository menuRepository = MenuRepository.getInstance();
 
     private Menu(String name, int price){
         this.name = MenuName.from(name);
@@ -17,10 +17,7 @@ public class Menu {
     }
 
     private static Menu findByName(String name){
-        // TODO: 이름으로 찾는 기능 구현
-        // 1. 만약에 해당하는 이름이 없다면 예외 발생
-        // 2. 그게 아니라면 Menu 생성하기
-        menuRepository.
+        return menuRepository.findByName(name);
     }
 
     public static Menu of(String name, int price){
