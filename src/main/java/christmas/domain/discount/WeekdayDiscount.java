@@ -2,23 +2,19 @@ package christmas.domain.discount;
 
 import christmas.domain.Date;
 import christmas.domain.DateType;
+import christmas.domain.EventProgressStatus;
 import christmas.repository.DateRepository;
 import java.util.ArrayList;
 import java.util.List;
 
 public class WeekdayDiscount implements Discount{
-    List<Date> dates = new ArrayList<>();
-    DateRepository dateRepository = DateRepository.getInstance();
+    private List<Date> dates = initDays();
+    private static final DateRepository dateRepository = DateRepository.getInstance();
     private static final int DISCOUNT_PRICE = 2023;
 
     @Override
-    public int getDiscountPrice() {
+    public int getDiscountPrice(EventProgressStatus eventProgressStatus) {
         return DISCOUNT_PRICE;
-    }
-
-    @Override
-    public int getDiscountPrice(Date date) {
-        return -1;
     }
 
     @Override

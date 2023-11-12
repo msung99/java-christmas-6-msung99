@@ -14,6 +14,13 @@ public class DateRepository {
     private final Map<DateType, List<Date>> dates = new HashMap<>();
     private static final DateRepository dateRepository = null;
 
+    private DateRepository(){
+        dates.put(DateType.D_DAY, initDDay());
+        dates.put(DateType.WEEKDAY, initWeekDay());
+        dates.put(DateType.WEEKEND, initWeekEnd());
+        dates.put(DateType.SPECITAL, initSpecial());
+    }
+
     public static DateRepository getInstance() {
         if(dateRepository == null) {
             return new DateRepository();
@@ -29,12 +36,6 @@ public class DateRepository {
                 .orElseThrow();
     }
 
-    private DateRepository(){
-        dates.put(DateType.D_DAY, initDDay());
-        dates.put(DateType.WEEKDAY, initWeekDay());
-        dates.put(DateType.WEEKEND, initWeekEnd());
-        dates.put(DateType.SPECITAL, initSpecial());
-    }
 
     private List<Date> initDDay() {
         return IntStream.rangeClosed(1, 25)

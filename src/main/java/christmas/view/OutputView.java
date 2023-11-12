@@ -5,7 +5,9 @@ import christmas.domain.EventProgressStatus;
 import christmas.domain.Order;
 import christmas.domain.Quantity;
 import christmas.domain.Amount;
+import christmas.domain.discount.Discount;
 import christmas.domain.menu.Menu;
+import java.util.List;
 import java.util.Map;
 
 public class OutputView {
@@ -56,5 +58,12 @@ public class OutputView {
             return CHAMPAGNE_MESSAGE;
         }
         return NOTHING;
+    }
+
+    public void printDiscountEventLogs(EventProgressStatus eventProgressStatus) {
+        for(Discount discount : eventProgressStatus.getDiscounts()) {
+            System.out.println(discount.getDiscountPrice(eventProgressStatus));
+            // System.out.println(discount.getDiscountPrice(eventProgressStatus) + " 할인: "  + " 원");
+        }
     }
 }

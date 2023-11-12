@@ -28,15 +28,16 @@ public class EventPlanController {
         Amount amount = getTotalOrderAmounts(order.getOrder());;
 
         if (!amount.isEventActivate()) {
-            // TODO: 이벤트 적용 없이, "없음" 의 혜택 내역을
+            // TODO: 이벤트 적용 없이, "없음" 의 혜택 내역을 보여주기
         }
 
         EventProgressStatus eventProgressStatus = presentChampagne(amount, date, order);
-        tryDiscount(eventProgressStatus, new ChirstmasDiscount(eventProgressStatus));
-        tryDiscount(eventProgressStatus, new WeekdayDiscount());
+        tryDiscount(eventProgressStatus, new ChirstmasDiscount());
         tryDiscount(eventProgressStatus, new WeekdayDiscount());
         tryDiscount(eventProgressStatus, new WeekendDiscount());
         tryDiscount(eventProgressStatus, new SpecialDiscount());
+
+        outputView.printDiscountEventLogs(eventProgressStatus);
     }
 
     private Order orderMenu(Date date){

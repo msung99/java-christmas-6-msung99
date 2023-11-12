@@ -43,4 +43,8 @@ public class EventProgressStatus {
     public void addDiscount(Discount discount) {
         discounts.add(discount);
     }
+
+    public List<Discount> getDiscounts() {
+        return discounts;
+    }
 }

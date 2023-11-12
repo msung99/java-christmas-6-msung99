@@ -36,4 +36,16 @@ public class Date {
     public int getDate() {
         return date;
     }
+
+    @Override
+    public boolean equals(Object object) {
+        if(this == object) {
+            return true;
+        }
+        if(object == null || getClass() != object.getClass()) {
+            return false;
+        }
+        Date otherDate = (Date) object;
+        return date == otherDate.date;
+    }
 }

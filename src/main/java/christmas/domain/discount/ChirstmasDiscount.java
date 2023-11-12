@@ -8,23 +8,13 @@ import java.util.List;
 
 public class ChirstmasDiscount implements Discount{
     private final List<Date> dates = initDays();
-    private final Date date;
-    private final DateRepository dateRepository = DateRepository.getInstance();
+    private static final DateRepository dateRepository = DateRepository.getInstance();
     private static final int BASIC_PRICE = 1000;
     private static final int ADD_PRICE = 100;
 
-    public ChirstmasDiscount(EventProgressStatus eventProgressStatus) {
-        this.date = eventProgressStatus.getDate();
-    }
-
     @Override
-    public int getDiscountPrice(Date date) {
-        return BASIC_PRICE + (ADD_PRICE * (date.getDate()) -1);
-    }
-
-    @Override
-    public int getDiscountPrice() {
-        return -1;
+    public int getDiscountPrice(EventProgressStatus eventProgressStatus) {
+        return BASIC_PRICE + (ADD_PRICE * (eventProgressStatus.getDate().getDate() -1));
     }
 
     @Override
