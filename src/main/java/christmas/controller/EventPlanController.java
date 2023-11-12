@@ -1,6 +1,7 @@
 package christmas.controller;
 
 import christmas.domain.Date;
+import christmas.domain.EventProgressStatus;
 import christmas.domain.Order;
 import christmas.domain.Quantity;
 import christmas.domain.Amount;
@@ -17,9 +18,11 @@ public class EventPlanController {
         Order order = orderMenu(date);
         Amount amount = getTotalOrderAmounts(order.getOrder());
 
-        if (amount.isEventActivate()) {
-
+        if (!amount.isEventActivate()) {
+            // TODO: 이벤트 적용 없이, "없음" 의 혜택 내역을
         }
+
+        EventProgressStatus eventProgressStatus = EventProgressStatus.of(amount, date);
     }
 
     private Order orderMenu(Date date){
