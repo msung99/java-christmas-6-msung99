@@ -16,7 +16,7 @@ public class EventPlanController {
     public void runPlanner(){
         Date date = Date.of(inputView.readDate());
         Order order = orderMenu(date);
-        Amount amount = getTotalOrderAmounts(order.getOrder());
+        Amount amount = getTotalOrderAmounts(order.getOrder());;
 
         if (!amount.isEventActivate()) {
             // TODO: 이벤트 적용 없이, "없음" 의 혜택 내역을
