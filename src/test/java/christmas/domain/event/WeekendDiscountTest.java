@@ -1,5 +1,7 @@
-package christmas.domain;
+package christmas.domain.event;
 
+import christmas.domain.Date;
+import christmas.domain.Order;
 import christmas.domain.discount.Discount;
 import christmas.domain.discount.WeekdayDiscount;
 import christmas.domain.discount.WeekendDiscount;
