@@ -7,33 +7,19 @@ import java.text.DecimalFormat;
 import java.util.List;
 
 public class StringFormatter {
-    public enum Format {
-        EVENT_DISCOUNT_RESULT_FORMAT("%s 할인: -%,d원  \n"),
-        REWARD_RATE_FORMAT("#,##0.0");
-
-        private final String format;
-
-        Format(String format) {
-            this.format = format;
-        }
-
-        public String toString() {
-            return this.format;
-        }
-    }
+    private static final String EVENT_DISCOUNT_RESULT_FORMAT = "%s 할인: -%,d원 \n";
 
     public static String mapDiscountsToString(EventProgressStatus eventProgressStatus){
         StringBuilder result = new StringBuilder();
-        for(Discount discount : eventProgressStatus.getDiscounts()) {
-            result.append(
-                    String.format(Format.EVENT_DISCOUNT_RESULT_FORMAT.toString(),
-                            discount.getDateType(),
-                            discount.getDiscountPrice(eventProgressStatus)));
-        }
+        addDiscountResult(result, eventProgressStatus);
         return result.toString();
     }
 
-    public static String mapPriceToString(int price) {
-        return new DecimalFormat(Format.REWARD_RATE_FORMAT.format).format(price);
+    private static void addDiscountResult(StringBuilder result, EventProgressStatus eventProgressStatus) {
+        for(Discount discount : eventProgressStatus.getDiscounts()) {
+            result.append(String.format(EVENT_DISCOUNT_RESULT_FORMAT,
+                    discount.getDateType(),
+                    discount.getDiscountPrice(eventProgressStatus)));
+        }
     }
 }
