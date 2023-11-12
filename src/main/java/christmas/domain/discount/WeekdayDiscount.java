@@ -24,7 +24,7 @@ public class WeekdayDiscount implements Discount{
         return DISCOUNT_PRICE * getDessertCounts(eventProgressStatus.getOrder());
     }
 
-    private int getDessertCounts(Order order) {
+    public int getDessertCounts(Order order) {
         return order.getOrder().entrySet().stream()
                 .filter(entry -> menuRepository.findTypeByMenu(entry.getKey()) == MenuType.DESSERT)
                 .mapToInt(entry -> entry.getValue().getQuantity())
