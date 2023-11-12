@@ -24,4 +24,8 @@ public class EventProgressStatus {
     private boolean setPresentChampagne(Amount amount) {
         return amount.getAmount() >= PRESENT_CHAMPAGNE_MIN_PRICE;
     }
+
+    public boolean isPresentChampagne() {
+        return isPresentChampagne;
+    }
 }

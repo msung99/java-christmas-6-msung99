@@ -22,7 +22,7 @@ public class EventPlanController {
             // TODO: 이벤트 적용 없이, "없음" 의 혜택 내역을
         }
 
-        EventProgressStatus eventProgressStatus = EventProgressStatus.of(amount, date);
+        EventProgressStatus eventProgressStatus = presentChampagne(amount, date);
     }
 
     private Order orderMenu(Date date){
@@ -38,5 +38,11 @@ public class EventPlanController {
         }
         outputView.printAmountBeforeDiscount(amount);
         return amount;
+    }
+
+    private EventProgressStatus presentChampagne(Amount amount, Date date) {
+        EventProgressStatus eventProgressStatus = EventProgressStatus.of(amount, date);
+        outputView.printChampagne(eventProgressStatus);
+        return eventProgressStatus;
     }
 }
