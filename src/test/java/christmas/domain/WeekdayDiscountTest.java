@@ -20,7 +20,7 @@ public class WeekdayDiscountTest {
     }
 
     @ParameterizedTest
-    @DisplayName("평일 할인을 적용하는 경우 디저트 메뉴 ")
+    @DisplayName("평일 할인을 적용하는 경우 디저트 메뉴 개수를 카운팅하여 적용한다")
     @MethodSource("getWeekdayOrderInputs")
     void testWeekdayOrderTest(String order, int dessertCount) {
         WeekdayDiscount weekdayDiscount = new WeekdayDiscount();
