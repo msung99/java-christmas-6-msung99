@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public interface Discount {
+    int getDiscountPrice(Date date);
 
     int getDiscountPrice();
     boolean isEventDay(Date date);

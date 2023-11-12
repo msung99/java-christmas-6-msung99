@@ -6,12 +6,24 @@ import christmas.repository.DateRepository;
 import java.util.List;
 
 public class ChirstmasDiscount implements Discount{
-    List<Date> dates = initDays();
+    private final List<Date> dates = initDays();
+    private final Date date;
     private final DateRepository dateRepository = DateRepository.getInstance();
+    private static final int BASIC_PRICE = 1000;
+    private static final int ADD_PRICE = 100;
+
+    public ChirstmasDiscount(Date date) {
+        this.date = date;
+    }
+
+    @Override
+    public int getDiscountPrice(Date date) {
+        return BASIC_PRICE + (ADD_PRICE * (date.getDate()) -1);
+    }
 
     @Override
     public int getDiscountPrice() {
-        return 2023;
+        return -1;
     }
 
     @Override

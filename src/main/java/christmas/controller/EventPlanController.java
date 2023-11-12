@@ -30,7 +30,7 @@ public class EventPlanController {
         }
 
         EventProgressStatus eventProgressStatus = presentChampagne(amount, date, order);
-        tryDiscount(eventProgressStatus, new ChirstmasDiscount());
+        tryDiscount(eventProgressStatus, new ChirstmasDiscount(date));
         tryDiscount(eventProgressStatus, new WeekdayDiscount());
     }
 
