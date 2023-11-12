@@ -17,12 +17,12 @@ public class OutputView {
     private static final String AMOUNT_BEFORE_DISCOUNT_INTRO_MESSAGE = "\n<할인 전 총주문 금액>";
     private static final String EMPTY_SPACE = " ";
     private static final String COUNT_MESSAGE = "개";
-    private static final String WON_MESSAGE = "원";
     private static final String CHAMPAGNE_MESSAGE = "샴페인 1개";
     private static final String PRESENT_MESSAGE = "\n<증정 메뉴>";
     private static final String EVENT_LIST_MESSAGE = "\n<혜택 내역>";
     private static final String NOTHING = "없음";
     private static final String TOTAL_DISCOUNT_MESSAGE = "\n<총혜택 금액>";
+    private static final String EXPECT_PAYMENT_PRICE = "\n<할인 후 예상 결제 금액>";
 
     public void printMenu(Order order, Date date) {
         printDate(date);
@@ -48,7 +48,7 @@ public class OutputView {
 
     public void printAmountBeforeDiscount(Amount amount){
         System.out.println(AMOUNT_BEFORE_DISCOUNT_INTRO_MESSAGE);
-        System.out.println(StringFormatter.mapTotalAmountToString(amount));
+        System.out.println(StringFormatter.mapTotalAmountoString(amount));
     }
 
     public void printChampagne(EventProgressStatus eventProgressStatus){
@@ -73,6 +73,11 @@ public class OutputView {
 
     public void printTotalDiscount(int totalDiscount) {
         System.out.println(TOTAL_DISCOUNT_MESSAGE);
-        System.out.println(StringFormatter.mapTotalDiscountToString(totalDiscount));
+        System.out.println(StringFormatter.mapPriceToMinusString(totalDiscount));
+    }
+
+    public void printExpectPaymentPrice(int paymentPrice) {
+        System.out.println(EXPECT_PAYMENT_PRICE);
+        System.out.println(StringFormatter.mapPriceBasicToString(paymentPrice));
     }
 }

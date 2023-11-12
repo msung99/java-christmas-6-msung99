@@ -8,9 +8,8 @@ import java.text.DecimalFormat;
 import java.util.List;
 
 public class StringFormatter {
-    private static final String TOTAL_AMOUNT_FORMAT = "%,d원";
-    private static final String TOTAL_DISCOUNT_FORMAT = "-%,d원";
-
+    private static final String BASIC_PRICE_FORMAT = "%,d원";
+    private static final String PRICE_WITH_MINUS_FORMAT = "-%,d원";
     private static final String EVENT_DISCOUNT_RESULT_FORMAT = "%s 할인: -%,d원\n";
     private static final String PRESENT_RESULT_FORMAT = "증정 이벤트: -%,d원";
 
@@ -38,11 +37,15 @@ public class StringFormatter {
         return String.format(PRESENT_RESULT_FORMAT, eventProgressStatus.getChampagnePresentPrice());
     }
 
-    public static String mapTotalAmountToString(Amount amount) {
-        return String.format(TOTAL_AMOUNT_FORMAT, amount.getAmount());
+    public static String mapTotalAmountoString(Amount amount) {
+        return String.format(BASIC_PRICE_FORMAT, amount.getAmount());
     }
 
-    public static String mapTotalDiscountToString(int discount) {
-        return String.format(TOTAL_DISCOUNT_FORMAT, discount);
+    public static String mapPriceToMinusString(int price) {
+        return String.format(PRICE_WITH_MINUS_FORMAT, price);
+    }
+
+    public static String mapPriceBasicToString(int price) {
+        return String.format(BASIC_PRICE_FORMAT, price);
     }
 }

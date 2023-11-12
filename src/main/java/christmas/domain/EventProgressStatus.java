@@ -2,10 +2,7 @@ package christmas.domain;
 
 import christmas.domain.discount.Discount;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import org.mockito.internal.matchers.Or;
 
 public class EventProgressStatus {
     private final Amount amount;
@@ -34,13 +31,17 @@ public class EventProgressStatus {
         return totalDiscount;
     }
 
-    private int getPresentPrice() {
-        if(isPresentChampagne) {
+    public int getTotalDiscountWithoutPresent() {
+        return discounts.stream()
+                .mapToInt(discount -> discount.getDiscountPrice(this)).sum();
+    }
+
+    private int getPresentPrice () {
+        if (isPresentChampagne) {
             return CHAMPAGNE_PRESENT_PRICE;
         }
         return 0;
     }
-
 
     private boolean setPresentChampagne(Amount amount) {
         return amount.getAmount() >= PRESENT_CHAMPAGNE_MIN_PRICE;
@@ -68,5 +69,9 @@ public class EventProgressStatus {
 
     public Order getOrder() {
         return order;
+    }
+
+    public int getExpectPaymentPrice() {
+        return amount.getAmount() - getTotalDiscountWithoutPresent();
     }
 }

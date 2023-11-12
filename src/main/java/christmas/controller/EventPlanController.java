@@ -33,6 +33,7 @@ public class EventPlanController {
         discount(eventProgressStatus);
         outputView.printDiscountEventLogs(eventProgressStatus);
         outputView.printTotalDiscount(eventProgressStatus.getTotalDiscount());
+        outputView.printExpectPaymentPrice(eventProgressStatus.getExpectPaymentPrice());
     }
 
     private Order orderMenu(Date date){
