@@ -67,7 +67,7 @@ public class OutputView {
         System.out.println(EVENT_LIST_MESSAGE);
         System.out.println(StringFormatter.mapDiscountsToString(eventProgressStatus));
         if (eventProgressStatus.isPresentChampagne()) {
-            StringFormatter.mapPresentEventToString(eventProgressStatus);
+            System.out.println(StringFormatter.mapPresentEventToString(eventProgressStatus));
         }
     }
 }

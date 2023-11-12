@@ -8,9 +8,9 @@ import java.text.DecimalFormat;
 import java.util.List;
 
 public class StringFormatter {
-    private static final String TOTAL_AMOUNT_FORMAT = "%,d원\n";
+    private static final String TOTAL_AMOUNT_FORMAT = "%,d원";
     private static final String EVENT_DISCOUNT_RESULT_FORMAT = "%s 할인: -%,d원\n";
-    private static final String PRESENT_RESULT_FORMAT = "증정 이벤트: -%,d원\n";
+    private static final String PRESENT_RESULT_FORMAT = "증정 이벤트: -%,d원";
 
     public static String mapDiscountsToString(EventProgressStatus eventProgressStatus){
         StringBuilder result = new StringBuilder();
@@ -19,10 +19,16 @@ public class StringFormatter {
     }
 
     private static void addDiscountResult(StringBuilder result, EventProgressStatus eventProgressStatus) {
-        for(Discount discount : eventProgressStatus.getDiscounts()) {
+        List<Discount> discounts = eventProgressStatus.getDiscounts();
+        int size = discounts.size();
+        for (int i = 0; i < size; i++) {
+            Discount discount = discounts.get(i);
             result.append(String.format(EVENT_DISCOUNT_RESULT_FORMAT,
                     discount.getDateType(),
                     discount.getDiscountPrice(eventProgressStatus)));
+            if (i == size - 1) {
+                result.delete(result.length() - 1, result.length());
+            }
         }
     }
 
