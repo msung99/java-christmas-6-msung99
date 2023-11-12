@@ -16,7 +16,7 @@ public class OutputView {
     private static final String COUNT_MESSAGE = "개";
     private static final String WON_MESSAGE = "원";
     private static final String CHAMPAGNE_MESSAGE = "샴페인 1개";
-    private static final String PRESENT_MESSAGE = "<증정 메뉴>";
+    private static final String PRESENT_MESSAGE = "\n<증정 메뉴>";
     private static final String NOTHING = "없음";
 
     public void printMenu(Order order, Date date) {
