@@ -23,8 +23,22 @@ public class EventProgressStatus {
         this.isPresentChampagne = setPresentChampagne(amount);
     }
 
-    public static EventProgressStatus of(Amount amount, Date date, Order order){
+    public static EventProgressStatus of(Amount amount, Date date, Order order) {
         return new EventProgressStatus(amount, date, order);
+    }
+
+    public int getTotalDiscount() {
+        int totalDiscount = discounts.stream()
+                .mapToInt(discount -> discount.getDiscountPrice(this)).sum();
+        totalDiscount += getPresentPrice();
+        return totalDiscount;
+    }
+
+    private int getPresentPrice() {
+        if(isPresentChampagne) {
+            return CHAMPAGNE_PRESENT_PRICE;
+        }
+        return 0;
     }
 
 

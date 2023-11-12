@@ -30,12 +30,9 @@ public class EventPlanController {
         }
 
         EventProgressStatus eventProgressStatus = presentChampagne(amount, date, order);
-        tryDiscount(eventProgressStatus, new ChirstmasDiscount());
-        tryDiscount(eventProgressStatus, new WeekdayDiscount());
-        tryDiscount(eventProgressStatus, new WeekendDiscount());
-        tryDiscount(eventProgressStatus, new SpecialDiscount());
-
+        discount(eventProgressStatus);
         outputView.printDiscountEventLogs(eventProgressStatus);
+        outputView.printTotalDiscount(eventProgressStatus.getTotalDiscount());
     }
 
     private Order orderMenu(Date date){
@@ -59,7 +56,14 @@ public class EventPlanController {
         return eventProgressStatus;
     }
 
-    private void tryDiscount(EventProgressStatus eventProgressStatus, Discount discount) {
+    private void discount(EventProgressStatus eventProgressStatus){
+        tryEachDiscount(eventProgressStatus, new ChirstmasDiscount());
+        tryEachDiscount(eventProgressStatus, new WeekdayDiscount());
+        tryEachDiscount(eventProgressStatus, new WeekendDiscount());
+        tryEachDiscount(eventProgressStatus, new SpecialDiscount());
+    }
+
+    private void tryEachDiscount(EventProgressStatus eventProgressStatus, Discount discount) {
         if(discount.isEventDay(eventProgressStatus.getDate())) {
             eventProgressStatus.addDiscount(discount);
         }

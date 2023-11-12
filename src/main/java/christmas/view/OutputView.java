@@ -22,7 +22,7 @@ public class OutputView {
     private static final String PRESENT_MESSAGE = "\n<증정 메뉴>";
     private static final String EVENT_LIST_MESSAGE = "\n<혜택 내역>";
     private static final String NOTHING = "없음";
-    private static final String MINUS_SIGNAL = "-";
+    private static final String TOTAL_DISCOUNT_MESSAGE = "\n<총혜택 금액>";
 
     public void printMenu(Order order, Date date) {
         printDate(date);
@@ -69,5 +69,10 @@ public class OutputView {
         if (eventProgressStatus.isPresentChampagne()) {
             System.out.println(StringFormatter.mapPresentEventToString(eventProgressStatus));
         }
+    }
+
+    public void printTotalDiscount(int totalDiscount) {
+        System.out.println(TOTAL_DISCOUNT_MESSAGE);
+        System.out.println(StringFormatter.mapTotalDiscountToString(totalDiscount));
     }
 }
