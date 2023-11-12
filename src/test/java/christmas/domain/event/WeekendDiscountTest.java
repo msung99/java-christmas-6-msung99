@@ -18,16 +18,16 @@ public class WeekendDiscountTest {
     @DisplayName("주말 날짜에 해당하는 경우 주말 할인이 적용된다.")
     @ValueSource(strings = {"1", "2", "8", "9", "15", "16", "22", "23", "29", "30"})
     void testSpecialDiscountApply(String date) {
-        Discount weekdayDiscount = new WeekendDiscount();
-        Assertions.assertTrue(weekdayDiscount.isEventDay(Date.of(date)));
+        Discount weekendDiscount = new WeekendDiscount();
+        Assertions.assertTrue(weekendDiscount.isEventDay(Date.of(date)));
     }
 
     @ParameterizedTest
     @DisplayName("주말 할인을 적용하는 경우 메인 메뉴 개수를 카운팅하여 적용한다")
     @MethodSource("getWeekendOrderInputs")
     void testWeekendOrderTest(String order, int mainCount) {
-        WeekendDiscount weekdayDiscount = new WeekendDiscount();
-        Assertions.assertEquals(weekdayDiscount.getMainCounts(Order.of(order)), mainCount);
+        WeekendDiscount weekendDiscount = new WeekendDiscount();
+        Assertions.assertEquals(weekendDiscount.getMainCounts(Order.of(order)), mainCount);
     }
 
     static Stream<Arguments> getWeekendOrderInputs() {
