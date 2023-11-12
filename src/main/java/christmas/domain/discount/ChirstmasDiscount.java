@@ -1,13 +1,16 @@
 package christmas.domain.discount;
 
 import christmas.domain.Date;
+import christmas.domain.DateType;
+import christmas.repository.DateRepository;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import javax.xml.crypto.Data;
 
 public class ChirstmasDiscount implements Discount{
-    List<Date> dates = initDDay();
+    List<Date> dates = initDays();
+    private final DateRepository dateRepository = DateRepository.getInstance();
 
     @Override
     public int getDiscountPrice() {
@@ -18,9 +21,8 @@ public class ChirstmasDiscount implements Discount{
         return dates.contains(date);
     }
 
-    private List<Date> initDDay() {
-        return IntStream.rangeClosed(1, 25)
-                .mapToObj(i -> Date.of(String.valueOf(i)))
-                .collect(Collectors.toList());
+    @Override
+    public List<Date> initDays() {
+        return dateRepository.getDatesByType(DateType.D_DAY);
     }
 }

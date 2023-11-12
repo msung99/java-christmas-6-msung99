@@ -21,14 +21,13 @@ public class DateRepository {
         return dateRepository;
     }
 
-    public List<DateType> getTypesByDate(Date date) {
+    public List<Date> getDatesByType(DateType dateType) {
         return dates.entrySet().stream()
-                .filter(entry -> entry.getValue().contains(date))
-                .map(Map.Entry::getKey)
-                .collect(Collectors.toList());
+                .filter(entry -> entry.getKey() == dateType)
+                .map(Map.Entry::getValue)
+                .findFirst()
+                .orElseThrow();
     }
-
-
 
     private DateRepository(){
         dates.put(DateType.D_DAY, initDDay());
