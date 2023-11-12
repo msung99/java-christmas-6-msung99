@@ -7,6 +7,7 @@ import christmas.domain.Quantity;
 import christmas.domain.Amount;
 import christmas.domain.discount.Discount;
 import christmas.domain.menu.Menu;
+import christmas.util.StringFormatter;
 import java.util.List;
 import java.util.Map;
 
@@ -64,9 +65,7 @@ public class OutputView {
 
     public void printDiscountEventLogs(EventProgressStatus eventProgressStatus) {
         System.out.println(EVENT_LIST_MESSAGE);
-        for(Discount discount : eventProgressStatus.getDiscounts()) {
-            System.out.println(discount.getDateType() + " 할인: "  + MINUS_SIGNAL + discount.getDiscountPrice(eventProgressStatus) + "원");
-        }
+        System.out.println(StringFormatter.mapDiscountsToString(eventProgressStatus));
         if (eventProgressStatus.isPresentChampagne()) {
             System.out.println("증정 이벤트: " + MINUS_SIGNAL + eventProgressStatus.getChampagnePresentPrice() + "원");
         }
