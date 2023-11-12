@@ -14,6 +14,7 @@ public class EventProgressStatus {
     private List<Discount> discounts = new ArrayList<>();
     private final boolean isPresentChampagne;
     private static final int PRESENT_CHAMPAGNE_MIN_PRICE = 120000;
+    private static final int CHAMPAGNE_PRESENT_PRICE = 25000;
 
     private EventProgressStatus(Amount amount, Date date, Order order){
         this.amount = amount;
@@ -33,6 +34,10 @@ public class EventProgressStatus {
 
     public boolean isPresentChampagne() {
         return isPresentChampagne;
+    }
+
+    public int getChampagnePresentPrice() {
+        return CHAMPAGNE_PRESENT_PRICE;
     }
 
     public Date getDate() {

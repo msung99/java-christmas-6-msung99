@@ -19,6 +19,7 @@ public class OutputView {
     private static final String WON_MESSAGE = "원";
     private static final String CHAMPAGNE_MESSAGE = "샴페인 1개";
     private static final String PRESENT_MESSAGE = "\n<증정 메뉴>";
+    private static final String EVENT_LIST_MESSAGE = "\n<혜택 내역>";
     private static final String NOTHING = "없음";
 
     public void printMenu(Order order, Date date) {
@@ -61,8 +62,12 @@ public class OutputView {
     }
 
     public void printDiscountEventLogs(EventProgressStatus eventProgressStatus) {
+        System.out.println(EVENT_LIST_MESSAGE);
         for(Discount discount : eventProgressStatus.getDiscounts()) {
             System.out.println(discount.getDateType() + " 할인: "  + discount.getDiscountPrice(eventProgressStatus) + "원");
+        }
+        if (eventProgressStatus.isPresentChampagne()) {
+            System.out.println("증정 이벤트: " + eventProgressStatus.getChampagnePresentPrice() + "원");
         }
     }
 }
