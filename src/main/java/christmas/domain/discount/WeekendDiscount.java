@@ -20,7 +20,7 @@ public class WeekendDiscount implements Discount{
         return DISCOUNT_PRICE * getMainCounts(eventProgressStatus.getOrder());
     }
 
-    private int getMainCounts(Order order) {
+    public int getMainCounts(Order order) {
         return order.getOrder().entrySet().stream()
                 .filter(entry -> menuRepository.findTypeByMenu(entry.getKey()) == MenuType.MAIN)
                 .mapToInt(entry -> entry.getValue().getQuantity())
