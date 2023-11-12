@@ -4,9 +4,6 @@ import christmas.domain.Date;
 import christmas.domain.DateType;
 import christmas.repository.DateRepository;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
-import javax.xml.crypto.Data;
 
 public class ChirstmasDiscount implements Discount{
     List<Date> dates = initDays();
@@ -17,6 +14,7 @@ public class ChirstmasDiscount implements Discount{
         return 2023;
     }
 
+    @Override
     public boolean isEventDay(Date date) {
         return dates.contains(date);
     }

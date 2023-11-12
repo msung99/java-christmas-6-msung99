@@ -1,15 +1,27 @@
 package christmas.domain.discount;
 
 import christmas.domain.Date;
+import christmas.domain.DateType;
+import christmas.repository.DateRepository;
+import java.util.ArrayList;
+import java.util.List;
 
 public class WeekdayDiscount implements Discount{
+    List<Date> dates = new ArrayList<>();
+    DateRepository dateRepository = DateRepository.getInstance();
+
     @Override
     public int getDiscountPrice() {
-        // TODO: 주중 할인 구현
+        return 2023;
     }
 
     @Override
     public boolean isEventDay(Date date) {
-        // TODO: 주중 할인 구현
+        return dates.contains(date);
+    }
+
+    @Override
+    public List<Date> initDays() {
+        return dateRepository.getDatesByType(DateType.WEEKDAY);
     }
 }
