@@ -21,6 +21,15 @@ public class DateRepository {
         return dateRepository;
     }
 
+    public List<DateType> getTypesByDate(Date date) {
+        return dates.entrySet().stream()
+                .filter(entry -> entry.getValue().contains(date))
+                .map(Map.Entry::getKey)
+                .collect(Collectors.toList());
+    }
+
+
+
     private DateRepository(){
         dates.put(DateType.D_DAY, initDDay());
         dates.put(DateType.WEEKDAY, initWeekDay());
