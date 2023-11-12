@@ -48,7 +48,7 @@ public class OutputView {
 
     public void printAmountBeforeDiscount(Amount amount){
         System.out.println(AMOUNT_BEFORE_DISCOUNT_INTRO_MESSAGE);
-        System.out.println(amount.getAmount() + WON_MESSAGE);
+        System.out.println(StringFormatter.mapTotalAmountToString(amount));
     }
 
     public void printChampagne(EventProgressStatus eventProgressStatus){
@@ -67,7 +67,7 @@ public class OutputView {
         System.out.println(EVENT_LIST_MESSAGE);
         System.out.println(StringFormatter.mapDiscountsToString(eventProgressStatus));
         if (eventProgressStatus.isPresentChampagne()) {
-            System.out.println("증정 이벤트: " + MINUS_SIGNAL + eventProgressStatus.getChampagnePresentPrice() + "원");
+            StringFormatter.mapPresentEventToString(eventProgressStatus);
         }
     }
 }
