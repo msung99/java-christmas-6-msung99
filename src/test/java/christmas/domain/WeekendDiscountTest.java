@@ -20,8 +20,8 @@ public class WeekendDiscountTest {
 
     static Stream<Arguments> getWeekendOrderInputs() {
         return Stream.of(
-                Arguments.of("양동이수프-2,바비큐립-1,초코케이크-1,제로콜라-1", 2),
-                Arguments.of("양동이수프-3,바비큐립-1,초코케이크-3,제로콜라-1", 3),
-                Arguments.of("양동이수프-3,아이스크림-2,시저셀러드-4,제로콜라-1", 7));
+                Arguments.of("티본스테이크-1,바비큐립-1,초코케이크-2,제로콜라-1", 2),
+                Arguments.of("티본스테이크-2,바비큐립-3,초코케이크-2,제로콜라-1", 5),
+                Arguments.of("티본스테이크-2,바비큐립-3,해산물파스타-4,제로콜라-1", 9));
     }
 }
