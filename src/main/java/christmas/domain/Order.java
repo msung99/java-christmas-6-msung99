@@ -6,6 +6,7 @@ import christmas.exception.MaxOrderSizeException;
 import christmas.exception.OnlyBeverageException;
 import christmas.repository.MenuRepository;
 import christmas.util.OrderParser;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -43,4 +44,9 @@ public class Order {
     public Map<Menu, Quantity> getOrder() {
         return order;
     }
+
+    public List<Menu> getMenus() {
+        return new ArrayList<>(order.keySet());
+    }
+
 }

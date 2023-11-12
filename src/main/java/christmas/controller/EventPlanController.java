@@ -19,8 +19,6 @@ import java.util.Map;
 public class EventPlanController {
     private final InputView inputView = new InputView();
     private final OutputView outputView = new OutputView();
-    private final DateRepository dateRepository = DateRepository.getInstance();
-
 
     public void runPlanner(){
         Date date = Date.of(inputView.readDate());

@@ -9,6 +9,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class MenuRepository {
     private final Map<MenuType, List<Menu>> menus = new HashMap<>();
@@ -35,6 +36,13 @@ public class MenuRepository {
                 .findFirst()
                 .orElseThrow(InvalidOrderException::new);
     }
+
+    public List<Menu> findMenusByType(List<Menu> menus, MenuType menuType) {
+        return menus.stream()
+                .filter(menu -> menuType == findTypeByMenu(menu))
+                .collect(Collectors.toList());
+    }
+
 
     public MenuType findTypeByMenu(Menu menu) {
         return menus.entrySet().stream()
