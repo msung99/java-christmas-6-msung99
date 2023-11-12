@@ -2,6 +2,7 @@ package christmas.domain.discount;
 
 import christmas.domain.Date;
 import christmas.domain.DateType;
+import christmas.domain.EventProgressStatus;
 import christmas.repository.DateRepository;
 import java.util.List;
 
@@ -12,8 +13,8 @@ public class ChirstmasDiscount implements Discount{
     private static final int BASIC_PRICE = 1000;
     private static final int ADD_PRICE = 100;
 
-    public ChirstmasDiscount(Date date) {
-        this.date = date;
+    public ChirstmasDiscount(EventProgressStatus eventProgressStatus) {
+        this.date = eventProgressStatus.getDate();
     }
 
     @Override

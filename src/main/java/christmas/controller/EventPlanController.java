@@ -7,7 +7,9 @@ import christmas.domain.Quantity;
 import christmas.domain.Amount;
 import christmas.domain.discount.ChirstmasDiscount;
 import christmas.domain.discount.Discount;
+import christmas.domain.discount.SpecialDiscount;
 import christmas.domain.discount.WeekdayDiscount;
+import christmas.domain.discount.WeekendDiscount;
 import christmas.domain.menu.Menu;
 import christmas.repository.DateRepository;
 import christmas.view.InputView;
@@ -30,8 +32,11 @@ public class EventPlanController {
         }
 
         EventProgressStatus eventProgressStatus = presentChampagne(amount, date, order);
-        tryDiscount(eventProgressStatus, new ChirstmasDiscount(date));
+        tryDiscount(eventProgressStatus, new ChirstmasDiscount(eventProgressStatus));
         tryDiscount(eventProgressStatus, new WeekdayDiscount());
+        tryDiscount(eventProgressStatus, new WeekdayDiscount());
+        tryDiscount(eventProgressStatus, new WeekendDiscount());
+        tryDiscount(eventProgressStatus, new SpecialDiscount());
     }
 
     private Order orderMenu(Date date){

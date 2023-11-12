@@ -11,7 +11,6 @@ public class EventProgressStatus {
     private final Amount amount;
     private final Date date;
     private final Order order;
-    private final Map<DateType, EventPrice> eventList = new HashMap<>();
     private List<Discount> discounts = new ArrayList<>();
 
     private final boolean isPresentChampagne;
