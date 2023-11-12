@@ -25,4 +25,9 @@ public class SpecialDiscount implements Discount {
     public List<Date> initDays() {
         return dateRepository.getDatesByType(DateType.SPECITAL);
     }
+
+    @Override
+    public String getDateType() {
+        return DateType.SPECITAL.toString();
+    }
 }

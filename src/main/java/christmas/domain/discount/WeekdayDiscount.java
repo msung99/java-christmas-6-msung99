@@ -41,4 +41,9 @@ public class WeekdayDiscount implements Discount{
     public List<Date> initDays() {
         return dateRepository.getDatesByType(DateType.WEEKDAY);
     }
+
+    @Override
+    public String getDateType() {
+        return DateType.WEEKDAY.toString();
+    }
 }

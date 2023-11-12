@@ -10,4 +10,9 @@ public enum DateType {
     DateType(String type) {
         this.type = type;
     }
+
+    @Override
+    public String toString() {
+        return this.type;
+    }
 }

@@ -3,6 +3,7 @@ package christmas.domain.discount;
 import christmas.domain.Date;
 import christmas.domain.DateType;
 import christmas.domain.EventProgressStatus;
+import christmas.domain.menu.MenuType;
 import christmas.repository.DateRepository;
 import java.util.List;
 
@@ -25,5 +26,10 @@ public class ChirstmasDiscount implements Discount{
     @Override
     public List<Date> initDays() {
         return dateRepository.getDatesByType(DateType.D_DAY);
+    }
+
+    @Override
+    public String getDateType() {
+        return DateType.D_DAY.toString();
     }
 }

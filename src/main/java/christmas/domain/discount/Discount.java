@@ -11,4 +11,6 @@ public interface Discount {
     int getDiscountPrice(EventProgressStatus eventProgressStatus);
     boolean isEventDay(Date date);
     List<Date> initDays();
+
+    String getDateType();
 }

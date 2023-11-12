@@ -50,7 +50,7 @@ public class OutputView {
 
     public void printChampagne(EventProgressStatus eventProgressStatus){
         System.out.println(PRESENT_MESSAGE);
-        isPresentChampagne(eventProgressStatus);
+        System.out.println(isPresentChampagne(eventProgressStatus));
     }
 
     private String isPresentChampagne(EventProgressStatus eventProgressStatus){
@@ -62,8 +62,7 @@ public class OutputView {
 
     public void printDiscountEventLogs(EventProgressStatus eventProgressStatus) {
         for(Discount discount : eventProgressStatus.getDiscounts()) {
-            System.out.println(discount.getDiscountPrice(eventProgressStatus));
-            // System.out.println(discount.getDiscountPrice(eventProgressStatus) + " 할인: "  + " 원");
+            System.out.println(discount.getDateType() + " 할인: "  + discount.getDiscountPrice(eventProgressStatus) + "원");
         }
     }
 }
