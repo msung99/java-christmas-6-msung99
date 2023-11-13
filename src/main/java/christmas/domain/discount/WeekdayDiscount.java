@@ -4,14 +4,10 @@ import christmas.domain.Date;
 import christmas.domain.DateType;
 import christmas.domain.EventProgressStatus;
 import christmas.domain.Order;
-import christmas.domain.Quantity;
-import christmas.domain.menu.Menu;
 import christmas.domain.menu.MenuType;
 import christmas.repository.DateRepository;
 import christmas.repository.MenuRepository;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 public class WeekdayDiscount implements Discount{
     private List<Date> dates = initDays();

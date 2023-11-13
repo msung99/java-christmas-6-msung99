@@ -1,6 +1,5 @@
 package christmas.domain.menu;
 
-import java.util.List;
 
 public enum MenuType {
     APPETIZER("에피타이저"),

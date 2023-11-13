@@ -3,8 +3,6 @@ package christmas.util;
 import christmas.domain.Amount;
 import christmas.domain.EventProgressStatus;
 import christmas.domain.discount.Discount;
-import java.math.BigDecimal;
-import java.text.DecimalFormat;
 import java.util.List;
 
 public class StringFormatter {

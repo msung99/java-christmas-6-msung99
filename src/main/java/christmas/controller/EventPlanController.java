@@ -1,6 +1,6 @@
 package christmas.controller;
 
-import christmas.Badge;
+import christmas.domain.Badge;
 import christmas.domain.Date;
 import christmas.domain.EventProgressStatus;
 import christmas.domain.Order;
@@ -12,11 +12,9 @@ import christmas.domain.discount.SpecialDiscount;
 import christmas.domain.discount.WeekdayDiscount;
 import christmas.domain.discount.WeekendDiscount;
 import christmas.domain.menu.Menu;
-import christmas.repository.DateRepository;
 import christmas.view.InputView;
 import christmas.view.OutputView;
 import java.util.Map;
-import org.mockito.internal.matchers.Or;
 
 public class EventPlanController {
     private final InputView inputView = new InputView();

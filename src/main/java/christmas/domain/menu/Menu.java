@@ -1,7 +1,6 @@
 package christmas.domain.menu;
 
 import christmas.repository.MenuRepository;
-import java.util.Objects;
 
 public class Menu {
     private final MenuName name;

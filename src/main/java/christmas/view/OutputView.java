@@ -1,15 +1,13 @@
 package christmas.view;
 
-import christmas.Badge;
+import christmas.domain.Badge;
 import christmas.domain.Date;
 import christmas.domain.EventProgressStatus;
 import christmas.domain.Order;
 import christmas.domain.Quantity;
 import christmas.domain.Amount;
-import christmas.domain.discount.Discount;
 import christmas.domain.menu.Menu;
 import christmas.util.StringFormatter;
-import java.util.List;
 import java.util.Map;
 
 public class OutputView {
