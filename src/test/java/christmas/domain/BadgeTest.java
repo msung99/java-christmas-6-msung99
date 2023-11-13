@@ -27,4 +27,11 @@ public class BadgeTest {
     void findSantaBadgeTest(int discountPrice) {
         Assertions.assertEquals(Badge.findByValue(discountPrice), Badge.SANTA);
     }
+
+    @ParameterizedTest
+    @DisplayName("총혜택 금액이 5000원 미만인 경우 배지를 부여받지 않는다.")
+    @ValueSource(ints = {0, 1000, 4000, 4999})
+    void findNothingBadgeTest(int discountPrice) {
+        Assertions.assertEquals(Badge.findByValue(discountPrice), Badge.NOTHING);
+    }
 }
