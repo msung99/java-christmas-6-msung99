@@ -44,10 +44,15 @@ public class EventPlanController {
         return amount.isEventActivate();
     }
 
-    private Order orderMenu(Date date){
-        Order order = Order.of(inputView.readOrder());
-        outputView.printMenu(order, date);
-        return order;
+    private Order orderMenu(Date date) {
+        try {
+            Order order = Order.of(inputView.readOrder());
+            outputView.printMenu(order, date);
+            return order;
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+            return orderMenu(date);
+        }
     }
 
     private Amount getTotalOrderAmounts(Map<Menu, Quantity> order){

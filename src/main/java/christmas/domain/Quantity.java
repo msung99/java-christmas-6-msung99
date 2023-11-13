@@ -20,7 +20,7 @@ public class Quantity {
         try{
             return Integer.parseInt(quantity);
         } catch (NumberFormatException e) {
-            throw new NumberParseException();
+            throw new InvalidOrderException();
         }
     }
 
