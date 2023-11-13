@@ -13,6 +13,14 @@ import org.junit.jupiter.params.provider.ValueSource;
 
 public class AmountTest {
     @ParameterizedTest
+    @DisplayName("총주문 금액이 1만원 이상인 경우에 이벤트가 적용된다.")
+    @ValueSource(ints = {10000, 12000, 15000, 16000, 100000, 1500000})
+    void testIsEventActivate(int amount) {
+        Assertions.assertTrue(new Amount(amount).isEventActivate());
+    }
+
+
+    @ParameterizedTest
     @DisplayName("주문을 시도하면 주문 금액에다 메뉴 x 개수 값을 누적해서 더한다.")
     @MethodSource("getAmountAndOrderInputs")
     void testPlusOrderAmountTest(Amount amount, Menu menu, Quantity quantity, int result) {
