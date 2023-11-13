@@ -7,20 +7,20 @@ public class Menu {
     private final MenuPrice price;
     private static final MenuRepository menuRepository = MenuRepository.getInstance();
 
-    private Menu(String name, int price){
+    private Menu(String name, int price) {
         this.name = MenuName.from(name);
         this.price = MenuPrice.from(price);
     }
 
-    public static Menu from(String name){
+    public static Menu from(String name) {
         return findByName(name);
     }
 
-    private static Menu findByName(String name){
+    private static Menu findByName(String name) {
         return menuRepository.findByName(name);
     }
 
-    public static Menu of(String name, int price){
+    public static Menu of(String name, int price) {
         return new Menu(name, price);
     }
 
@@ -29,11 +29,11 @@ public class Menu {
     }
 
     @Override
-    public boolean equals(Object object){
-        if(this == object){
+    public boolean equals(Object object) {
+        if (this == object) {
             return true;
         }
-        if(object == null || getClass() != object.getClass()){
+        if (object == null || getClass() != object.getClass()) {
             return false;
         }
         Menu otherMenu = (Menu) object;

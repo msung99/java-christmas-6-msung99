@@ -9,7 +9,7 @@ public enum MenuType {
 
     private final String type;
 
-    MenuType(String type){
+    MenuType(String type) {
         this.type = type;
     }
 

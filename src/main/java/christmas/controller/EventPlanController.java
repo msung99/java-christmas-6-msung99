@@ -1,17 +1,17 @@
 package christmas.controller;
 
-import christmas.domain.progress.Badge;
-import christmas.domain.progress.Date;
-import christmas.domain.progress.EventProgressStatus;
-import christmas.domain.progress.Order;
-import christmas.domain.progress.Quantity;
-import christmas.domain.progress.Amount;
 import christmas.domain.discount.ChirstmasDiscount;
 import christmas.domain.discount.Discount;
 import christmas.domain.discount.SpecialDiscount;
 import christmas.domain.discount.WeekdayDiscount;
 import christmas.domain.discount.WeekendDiscount;
 import christmas.domain.menu.Menu;
+import christmas.domain.progress.Amount;
+import christmas.domain.progress.Badge;
+import christmas.domain.progress.Date;
+import christmas.domain.progress.EventProgressStatus;
+import christmas.domain.progress.Order;
+import christmas.domain.progress.Quantity;
 import christmas.view.InputView;
 import christmas.view.OutputView;
 import java.util.Map;
@@ -20,7 +20,7 @@ public class EventPlanController {
     private final InputView inputView = new InputView();
     private final OutputView outputView = new OutputView();
 
-    public void runPlanner(){
+    public void runPlanner() {
         Date date = getDate();
         Order order = orderMenu(date);
         Amount amount = getTotalOrderAmounts(order.getOrder());
@@ -64,9 +64,9 @@ public class EventPlanController {
         }
     }
 
-    private Amount getTotalOrderAmounts(Map<Menu, Quantity> order){
+    private Amount getTotalOrderAmounts(Map<Menu, Quantity> order) {
         Amount amount = new Amount(0);
-        for(Map.Entry<Menu, Quantity> orderUnit : order.entrySet()){
+        for (Map.Entry<Menu, Quantity> orderUnit : order.entrySet()) {
             amount = amount.plusOrderAmounts(orderUnit.getKey(), orderUnit.getValue());
         }
         outputView.printAmountBeforeDiscount(amount);
@@ -74,13 +74,13 @@ public class EventPlanController {
     }
 
     private EventProgressStatus initEventStatus(Amount amount, Date date, Order order) {
-        if(amount.isEventActivate()) {
+        if (amount.isEventActivate()) {
             return EventProgressStatus.of(amount, date, order);
         }
         return EventProgressStatus.createDeActivate(amount);
     }
 
-    private void applyDiscountEvent(EventProgressStatus eventProgressStatus){
+    private void applyDiscountEvent(EventProgressStatus eventProgressStatus) {
         tryEachDiscount(eventProgressStatus, new ChirstmasDiscount());
         tryEachDiscount(eventProgressStatus, new WeekdayDiscount());
         tryEachDiscount(eventProgressStatus, new WeekendDiscount());
@@ -88,7 +88,7 @@ public class EventPlanController {
     }
 
     private void tryEachDiscount(EventProgressStatus eventProgressStatus, Discount discount) {
-        if(discount.isEventDay(eventProgressStatus.getDate())) {
+        if (discount.isEventDay(eventProgressStatus.getDate())) {
             eventProgressStatus.addDiscount(discount);
         }
     }

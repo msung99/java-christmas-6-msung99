@@ -14,7 +14,7 @@ public class EventProgressStatus {
     private static final int PRESENT_CHAMPAGNE_MIN_PRICE = 120000;
     private static final int CHAMPAGNE_PRESENT_PRICE = 25000;
 
-    private EventProgressStatus(Amount amount, Date date, Order order){
+    private EventProgressStatus(Amount amount, Date date, Order order) {
         this.amount = amount;
         this.date = date;
         this.order = order;
@@ -49,7 +49,7 @@ public class EventProgressStatus {
                 .mapToInt(discount -> discount.getDiscountPrice(this)).sum();
     }
 
-    private int getPresentPrice () {
+    private int getPresentPrice() {
         if (isPresentChampagne) {
             return CHAMPAGNE_PRESENT_PRICE;
         }

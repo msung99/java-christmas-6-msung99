@@ -1,15 +1,15 @@
 package christmas.domain.discount;
 
+import christmas.domain.menu.MenuType;
 import christmas.domain.progress.Date;
 import christmas.domain.progress.DateType;
 import christmas.domain.progress.EventProgressStatus;
 import christmas.domain.progress.Order;
-import christmas.domain.menu.MenuType;
 import christmas.repository.DateRepository;
 import christmas.repository.MenuRepository;
 import java.util.List;
 
-public class WeekdayDiscount implements Discount{
+public class WeekdayDiscount implements Discount {
     private List<Date> dates = initDays();
     private static final DateRepository dateRepository = DateRepository.getInstance();
     private static final MenuRepository menuRepository = MenuRepository.getInstance();

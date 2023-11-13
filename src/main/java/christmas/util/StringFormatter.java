@@ -1,8 +1,8 @@
 package christmas.util;
 
+import christmas.domain.discount.Discount;
 import christmas.domain.progress.Amount;
 import christmas.domain.progress.EventProgressStatus;
-import christmas.domain.discount.Discount;
 import java.util.List;
 
 public class StringFormatter {
@@ -11,7 +11,7 @@ public class StringFormatter {
     private static final String EVENT_DISCOUNT_RESULT_FORMAT = "%s 할인: -%,d원\n";
     private static final String PRESENT_RESULT_FORMAT = "증정 이벤트: -%,d원";
 
-    public static String mapDiscountsToString(EventProgressStatus eventProgressStatus){
+    public static String mapDiscountsToString(EventProgressStatus eventProgressStatus) {
         StringBuilder result = new StringBuilder();
         addDiscountResult(result, eventProgressStatus);
         return result.toString();
@@ -31,7 +31,7 @@ public class StringFormatter {
         }
     }
 
-    public static String mapPresentEventToString(EventProgressStatus eventProgressStatus){
+    public static String mapPresentEventToString(EventProgressStatus eventProgressStatus) {
         return String.format(PRESENT_RESULT_FORMAT, eventProgressStatus.getChampagnePresentPrice());
     }
 

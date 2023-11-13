@@ -6,7 +6,7 @@ import christmas.domain.progress.EventProgressStatus;
 import christmas.repository.DateRepository;
 import java.util.List;
 
-public class ChirstmasDiscount implements Discount{
+public class ChirstmasDiscount implements Discount {
     private final List<Date> dates = initDays();
     private static final DateRepository dateRepository = DateRepository.getInstance();
     private static final int BASIC_PRICE = 1000;
@@ -14,7 +14,7 @@ public class ChirstmasDiscount implements Discount{
 
     @Override
     public int getDiscountPrice(EventProgressStatus eventProgressStatus) {
-        return BASIC_PRICE + (ADD_PRICE * (eventProgressStatus.getDate().getDate() -1));
+        return BASIC_PRICE + (ADD_PRICE * (eventProgressStatus.getDate().getDate() - 1));
     }
 
     @Override

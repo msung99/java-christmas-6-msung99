@@ -3,7 +3,7 @@ package christmas.domain.menu;
 public class MenuName {
     private final String name;
 
-    private MenuName(String name){
+    private MenuName(String name) {
         this.name = name;
     }
 
@@ -12,16 +12,16 @@ public class MenuName {
     }
 
     @Override
-    public boolean equals(Object object){
-        if(this == object){
+    public boolean equals(Object object) {
+        if (this == object) {
             return true;
         }
-        if(object == null || getClass() != object.getClass()){
+        if (object == null || getClass() != object.getClass()) {
             return false;
         }
         MenuName otherName = (MenuName) object;
         return name.equals(otherName.name);
-     }
+    }
 
     public String getName() {
         return name;

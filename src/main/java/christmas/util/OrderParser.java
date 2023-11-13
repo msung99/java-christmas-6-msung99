@@ -1,7 +1,7 @@
 package christmas.util;
 
-import christmas.domain.progress.Quantity;
 import christmas.domain.menu.Menu;
+import christmas.domain.progress.Quantity;
 import christmas.exception.InvalidOrderException;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -27,7 +27,7 @@ public class OrderParser {
         return order;
     }
 
-    private static void checkMenuDuplication(Set<Menu> orders, Menu curMenu){
+    private static void checkMenuDuplication(Set<Menu> orders, Menu curMenu) {
         if (orders.contains(curMenu)) {
             throw new InvalidOrderException();
         }
@@ -39,14 +39,14 @@ public class OrderParser {
         return Map.entry(Menu.from(units.get(0)), Quantity.of(units.get(1)));
     }
 
-    private static void validateItemSize(List<String> units){
+    private static void validateItemSize(List<String> units) {
         if (units.size() != ORDER_ITEM_SIZE) {
             throw new InvalidOrderException();
         }
     }
 
-    private static void validateEmptySpace(String input){
-        if(input.contains(EMPTY_SPACE)){
+    private static void validateEmptySpace(String input) {
+        if (input.contains(EMPTY_SPACE)) {
             throw new InvalidOrderException();
         }
     }

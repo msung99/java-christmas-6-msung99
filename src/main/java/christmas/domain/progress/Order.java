@@ -17,13 +17,13 @@ public class Order {
     private static final int MAX_ORDER_SIZE = 20;
     private static final MenuRepository menuRepository = MenuRepository.getInstance();
 
-    private Order(Map<Menu, Quantity> order){
+    private Order(Map<Menu, Quantity> order) {
         validateOverSize(order);
         validateOnlyBeverage(order.keySet());
         this.order = new HashMap<>(order);
     }
 
-    public static Order of(String order){
+    public static Order of(String order) {
         Map<Menu, Quantity> orders = OrderParser.parseOrderUnits(order);
         validateOverSize(orders);
         return new Order(orders);

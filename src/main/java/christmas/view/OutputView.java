@@ -1,12 +1,12 @@
 package christmas.view;
 
+import christmas.domain.menu.Menu;
+import christmas.domain.progress.Amount;
 import christmas.domain.progress.Badge;
 import christmas.domain.progress.Date;
 import christmas.domain.progress.EventProgressStatus;
 import christmas.domain.progress.Order;
 import christmas.domain.progress.Quantity;
-import christmas.domain.progress.Amount;
-import christmas.domain.menu.Menu;
 import christmas.util.StringFormatter;
 import java.util.Map;
 
@@ -46,18 +46,18 @@ public class OutputView {
         System.out.println(itemName + EMPTY_SPACE + quantity + COUNT_MESSAGE);
     }
 
-    public void printAmountBeforeDiscount(Amount amount){
+    public void printAmountBeforeDiscount(Amount amount) {
         System.out.println(AMOUNT_BEFORE_DISCOUNT_INTRO_MESSAGE);
         System.out.println(StringFormatter.mapTotalAmountoString(amount));
     }
 
-    public void printChampagne(EventProgressStatus eventProgressStatus){
+    public void printChampagne(EventProgressStatus eventProgressStatus) {
         System.out.println(PRESENT_MESSAGE);
         System.out.println(isPresentChampagne(eventProgressStatus));
     }
 
-    private String isPresentChampagne(EventProgressStatus eventProgressStatus){
-        if(eventProgressStatus.isPresentChampagne()) {
+    private String isPresentChampagne(EventProgressStatus eventProgressStatus) {
+        if (eventProgressStatus.isPresentChampagne()) {
             return CHAMPAGNE_MESSAGE;
         }
         return NOTHING;
@@ -73,7 +73,7 @@ public class OutputView {
     }
 
     public String getDiscountMessage(EventProgressStatus eventProgressStatus) {
-        if(eventProgressStatus.isEventActivate()) {
+        if (eventProgressStatus.isEventActivate()) {
             return StringFormatter.mapDiscountsToString(eventProgressStatus);
         }
         return NOTHING;
@@ -85,7 +85,7 @@ public class OutputView {
     }
 
     public String getTotalDiscountMessage(EventProgressStatus eventProgressStatus) {
-        if(eventProgressStatus.isEventActivate()) {
+        if (eventProgressStatus.isEventActivate()) {
             return StringFormatter.mapPriceToMinusString(eventProgressStatus.getTotalDiscount());
         }
         return StringFormatter.mapPriceBasicToString(eventProgressStatus.getTotalDiscount());

@@ -14,15 +14,15 @@ public class MenuRepository {
     private final Map<MenuType, List<Menu>> menus = new HashMap<>();
     private static final MenuRepository menuRepository = null;
 
-    private MenuRepository(){
+    private MenuRepository() {
         menus.put(MenuType.APPETIZER, initAppetizer());
         menus.put(MenuType.MAIN, initMain());
         menus.put(MenuType.DESSERT, initDessert());
         menus.put(MenuType.BEVERAGE, initBeverage());
     }
 
-    public static MenuRepository getInstance(){
-        if(menuRepository == null) {
+    public static MenuRepository getInstance() {
+        if (menuRepository == null) {
             return new MenuRepository();
         }
         return menuRepository;
@@ -58,14 +58,14 @@ public class MenuRepository {
                 Menu.of("시저셀러드", 8000));
     }
 
-    private List<Menu> initMain(){
+    private List<Menu> initMain() {
         return Arrays.asList(Menu.of("티본스테이크", 55000),
                 Menu.of("바비큐립", 54000),
                 Menu.of("해산물파스타", 35000),
                 Menu.of("크리스마스파스타", 25000));
     }
 
-    private List<Menu> initDessert(){
+    private List<Menu> initDessert() {
         return Arrays.asList(Menu.of("초코케이크", 15000),
                 Menu.of("아이스크림", 5000));
     }
