@@ -1,5 +1,6 @@
 package christmas.view;
 
+import christmas.Badge;
 import christmas.domain.Date;
 import christmas.domain.EventProgressStatus;
 import christmas.domain.Order;
@@ -23,6 +24,7 @@ public class OutputView {
     private static final String NOTHING = "없음";
     private static final String TOTAL_DISCOUNT_MESSAGE = "\n<총혜택 금액>";
     private static final String EXPECT_PAYMENT_PRICE = "\n<할인 후 예상 결제 금액>";
+    private static final String BADGE_MESSAGE = "\n<12월 이벤트 배지>";
 
     public void printMenu(Order order, Date date) {
         printDate(date);
@@ -94,5 +96,10 @@ public class OutputView {
     public void printExpectPaymentPrice(int paymentPrice) {
         System.out.println(EXPECT_PAYMENT_PRICE);
         System.out.println(StringFormatter.mapPriceBasicToString(paymentPrice));
+    }
+
+    public void printBadge(Badge badge) {
+        System.out.println(BADGE_MESSAGE);
+        System.out.println(badge.toString());
     }
 }

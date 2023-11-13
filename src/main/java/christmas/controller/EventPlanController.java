@@ -1,5 +1,6 @@
 package christmas.controller;
 
+import christmas.Badge;
 import christmas.domain.Date;
 import christmas.domain.EventProgressStatus;
 import christmas.domain.Order;
@@ -30,8 +31,8 @@ public class EventPlanController {
         if (isEventActivate(amount)) {
             applyDiscountEvent(eventProgressStatus);
         }
-
         printEventResult(eventProgressStatus);
+        outputView.printBadge(getBadge(eventProgressStatus.getTotalDiscount()));
     }
 
     private void printEventResult(EventProgressStatus eventProgressStatus) {
@@ -78,5 +79,9 @@ public class EventPlanController {
         if(discount.isEventDay(eventProgressStatus.getDate())) {
             eventProgressStatus.addDiscount(discount);
         }
+    }
+
+    private Badge getBadge(int totalDiscount) {
+        return Badge.findByValue(totalDiscount);
     }
 }
