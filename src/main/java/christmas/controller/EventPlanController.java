@@ -30,7 +30,7 @@ public class EventPlanController {
         }
 
         EventProgressStatus eventProgressStatus = presentChampagne(amount, date, order);
-        discount(eventProgressStatus);
+        applyDiscountEvent(eventProgressStatus);
         outputView.printDiscountEventLogs(eventProgressStatus);
         outputView.printTotalDiscount(eventProgressStatus.getTotalDiscount());
         outputView.printExpectPaymentPrice(eventProgressStatus.getExpectPaymentPrice());
@@ -57,7 +57,7 @@ public class EventPlanController {
         return eventProgressStatus;
     }
 
-    private void discount(EventProgressStatus eventProgressStatus){
+    private void applyDiscountEvent(EventProgressStatus eventProgressStatus){
         tryEachDiscount(eventProgressStatus, new ChirstmasDiscount());
         tryEachDiscount(eventProgressStatus, new WeekdayDiscount());
         tryEachDiscount(eventProgressStatus, new WeekendDiscount());
