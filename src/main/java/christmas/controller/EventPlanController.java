@@ -1,11 +1,11 @@
 package christmas.controller;
 
-import christmas.domain.Badge;
-import christmas.domain.Date;
-import christmas.domain.EventProgressStatus;
-import christmas.domain.Order;
-import christmas.domain.Quantity;
-import christmas.domain.Amount;
+import christmas.domain.progress.Badge;
+import christmas.domain.progress.Date;
+import christmas.domain.progress.EventProgressStatus;
+import christmas.domain.progress.Order;
+import christmas.domain.progress.Quantity;
+import christmas.domain.progress.Amount;
 import christmas.domain.discount.ChirstmasDiscount;
 import christmas.domain.discount.Discount;
 import christmas.domain.discount.SpecialDiscount;

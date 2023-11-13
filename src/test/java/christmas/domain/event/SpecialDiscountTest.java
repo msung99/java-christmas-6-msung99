@@ -1,13 +1,12 @@
 package christmas.domain.event;
 
-import christmas.domain.Amount;
-import christmas.domain.Date;
-import christmas.domain.Order;
+import christmas.domain.progress.Amount;
+import christmas.domain.progress.Date;
+import christmas.domain.progress.Order;
 import christmas.domain.discount.Discount;
 import christmas.domain.discount.SpecialDiscount;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 

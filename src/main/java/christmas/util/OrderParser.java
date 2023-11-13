@@ -1,6 +1,6 @@
 package christmas.util;
 
-import christmas.domain.Quantity;
+import christmas.domain.progress.Quantity;
 import christmas.domain.menu.Menu;
 import christmas.exception.InvalidOrderException;
 import java.util.Arrays;

@@ -1,7 +1,7 @@
 package christmas.domain.discount;
 
-import christmas.domain.Date;
-import christmas.domain.EventProgressStatus;
+import christmas.domain.progress.Date;
+import christmas.domain.progress.EventProgressStatus;
 import java.util.List;
 
 public interface Discount {

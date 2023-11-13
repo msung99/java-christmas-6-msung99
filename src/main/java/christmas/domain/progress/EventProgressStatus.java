@@ -1,4 +1,4 @@
-package christmas.domain;
+package christmas.domain.progress;
 
 import christmas.domain.discount.Discount;
 import java.util.ArrayList;

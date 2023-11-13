@@ -1,4 +1,4 @@
-package christmas.domain;
+package christmas.domain.progress;
 
 public enum DateType {
     D_DAY("크라스마스 디데이"),

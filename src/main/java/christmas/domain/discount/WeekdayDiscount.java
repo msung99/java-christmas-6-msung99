@@ -1,9 +1,9 @@
 package christmas.domain.discount;
 
-import christmas.domain.Date;
-import christmas.domain.DateType;
-import christmas.domain.EventProgressStatus;
-import christmas.domain.Order;
+import christmas.domain.progress.Date;
+import christmas.domain.progress.DateType;
+import christmas.domain.progress.EventProgressStatus;
+import christmas.domain.progress.Order;
 import christmas.domain.menu.MenuType;
 import christmas.repository.DateRepository;
 import christmas.repository.MenuRepository;

@@ -1,12 +1,11 @@
 package christmas.domain.event;
 
-import christmas.domain.Amount;
-import christmas.domain.Date;
-import christmas.domain.EventProgressStatus;
-import christmas.domain.Order;
+import christmas.domain.progress.Amount;
+import christmas.domain.progress.Date;
+import christmas.domain.progress.EventProgressStatus;
+import christmas.domain.progress.Order;
 import christmas.domain.discount.ChirstmasDiscount;
 import christmas.domain.discount.Discount;
-import christmas.domain.discount.SpecialDiscount;
 import java.util.stream.Stream;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;

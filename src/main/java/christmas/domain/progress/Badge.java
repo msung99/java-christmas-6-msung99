@@ -1,4 +1,4 @@
-package christmas.domain;
+package christmas.domain.progress;
 
 import java.util.Arrays;
 

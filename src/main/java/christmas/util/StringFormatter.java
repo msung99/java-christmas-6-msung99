@@ -1,7 +1,7 @@
 package christmas.util;
 
-import christmas.domain.Amount;
-import christmas.domain.EventProgressStatus;
+import christmas.domain.progress.Amount;
+import christmas.domain.progress.EventProgressStatus;
 import christmas.domain.discount.Discount;
 import java.util.List;
 

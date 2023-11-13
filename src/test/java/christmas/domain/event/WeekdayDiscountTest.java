@@ -1,7 +1,7 @@
 package christmas.domain.event;
 
-import christmas.domain.Date;
-import christmas.domain.Order;
+import christmas.domain.progress.Date;
+import christmas.domain.progress.Order;
 import christmas.domain.discount.Discount;
 import christmas.domain.discount.WeekdayDiscount;
 import java.util.stream.Stream;

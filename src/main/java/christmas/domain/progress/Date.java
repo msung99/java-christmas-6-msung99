@@ -1,9 +1,7 @@
-package christmas.domain;
+package christmas.domain.progress;
 
 import christmas.exception.DateOutOfRangeException;
 import christmas.exception.InvalidDateException;
-import christmas.exception.InvalidOrderException;
-import christmas.exception.NumberParseException;
 
 public class Date {
     private final int date;

@@ -1,6 +1,5 @@
-package christmas.domain;
+package christmas.domain.progress;
 
-import christmas.exception.NumberParseException;
 import christmas.exception.InvalidOrderException;
 
 public class Quantity {

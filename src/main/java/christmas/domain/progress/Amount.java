@@ -1,4 +1,4 @@
-package christmas.domain;
+package christmas.domain.progress;
 
 import christmas.domain.menu.Menu;
 import christmas.domain.menu.MenuPrice;

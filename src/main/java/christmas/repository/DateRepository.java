@@ -1,7 +1,7 @@
 package christmas.repository;
 
-import christmas.domain.Date;
-import christmas.domain.DateType;
+import christmas.domain.progress.Date;
+import christmas.domain.progress.DateType;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;

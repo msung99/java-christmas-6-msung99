@@ -1,8 +1,8 @@
 package christmas.domain.discount;
 
-import christmas.domain.Date;
-import christmas.domain.DateType;
-import christmas.domain.EventProgressStatus;
+import christmas.domain.progress.Date;
+import christmas.domain.progress.DateType;
+import christmas.domain.progress.EventProgressStatus;
 import christmas.repository.DateRepository;
 import java.util.List;
 
