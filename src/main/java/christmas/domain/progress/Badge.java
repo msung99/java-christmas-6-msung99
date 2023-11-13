@@ -3,7 +3,10 @@ package christmas.domain.progress;
 import java.util.Arrays;
 
 public enum Badge {
-    NOTHING("없음", 0, 0), STAR("별", 5000, 9999), TREE("트리", 10000, 19999), SANTA("산타", 20000, 99999999);
+    NOTHING("없음", 0, 0),
+    STAR("별", 5000, 9999),
+    TREE("트리", 10000, 19999),
+    SANTA("산타", 20000, 99999999);
 
     private String name;
     private int min;

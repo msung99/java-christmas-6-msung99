@@ -1,6 +1,5 @@
 package christmas.domain.progress;
 
-import christmas.exception.DateOutOfRangeException;
 import christmas.exception.InvalidDateException;
 
 public class Date {
@@ -29,7 +28,7 @@ public class Date {
 
     private static void validateOutOfRange(int date) {
         if (date > MAX_DATE || date < MIN_DATE) {
-            throw new DateOutOfRangeException();
+            throw new InvalidDateException();
         }
     }
 

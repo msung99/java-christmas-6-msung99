@@ -16,7 +16,7 @@ public class DateRepository {
         dates.put(DateType.D_DAY, initDDay());
         dates.put(DateType.WEEKDAY, initWeekDay());
         dates.put(DateType.WEEKEND, initWeekEnd());
-        dates.put(DateType.SPECITAL, initSpecial());
+        dates.put(DateType.SPECIAL, initSpecial());
     }
 
     public static DateRepository getInstance() {

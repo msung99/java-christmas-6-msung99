@@ -30,7 +30,6 @@ public class EventPlanController {
             applyDiscountEvent(eventProgressStatus);
         }
         printEventResult(eventProgressStatus);
-        outputView.printBadge(getBadge(eventProgressStatus.getTotalDiscount()));
     }
 
     private void printEventResult(EventProgressStatus eventProgressStatus) {
@@ -38,6 +37,7 @@ public class EventPlanController {
         outputView.printDiscountEventLogs(eventProgressStatus);
         outputView.printTotalDiscount(eventProgressStatus);
         outputView.printExpectPaymentPrice(eventProgressStatus.getExpectPaymentPrice());
+        outputView.printBadge(getBadge(eventProgressStatus.getTotalDiscount()));
     }
 
     private Date getDate() {

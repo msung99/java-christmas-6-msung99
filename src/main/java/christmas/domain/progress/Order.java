@@ -2,8 +2,9 @@ package christmas.domain.progress;
 
 import christmas.domain.menu.Menu;
 import christmas.domain.menu.MenuType;
-import christmas.exception.MaxOrderSizeException;
+import christmas.exception.InvalidOrderException;
 import christmas.exception.OnlyBeverageException;
+import christmas.exception.OverFlowMenuException;
 import christmas.repository.MenuRepository;
 import christmas.util.OrderParser;
 import java.util.ArrayList;
@@ -31,7 +32,7 @@ public class Order {
 
     private static void validateOverSize(Map<Menu, Quantity> order) {
         if (order.values().stream().mapToInt(Quantity::getQuantity).sum() > MAX_ORDER_SIZE) {
-            throw new MaxOrderSizeException();
+            throw new OverFlowMenuException();
         }
     }
 

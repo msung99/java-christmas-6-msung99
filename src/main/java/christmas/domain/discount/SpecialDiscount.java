@@ -23,11 +23,11 @@ public class SpecialDiscount implements Discount {
 
     @Override
     public List<Date> initDays() {
-        return dateRepository.getDatesByType(DateType.SPECITAL);
+        return dateRepository.getDatesByType(DateType.SPECIAL);
     }
 
     @Override
     public String getDateType() {
-        return DateType.SPECITAL.toString();
+        return DateType.SPECIAL.toString();
     }
 }
