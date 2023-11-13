@@ -65,15 +65,30 @@ public class OutputView {
 
     public void printDiscountEventLogs(EventProgressStatus eventProgressStatus) {
         System.out.println(EVENT_LIST_MESSAGE);
-        System.out.println(StringFormatter.mapDiscountsToString(eventProgressStatus));
+        System.out.println(getDiscountMessage(eventProgressStatus));
+
         if (eventProgressStatus.isPresentChampagne()) {
             System.out.println(StringFormatter.mapPresentEventToString(eventProgressStatus));
         }
     }
 
-    public void printTotalDiscount(int totalDiscount) {
+    public String getDiscountMessage(EventProgressStatus eventProgressStatus) {
+        if(eventProgressStatus.isEventActivate()) {
+            return StringFormatter.mapDiscountsToString(eventProgressStatus);
+        }
+        return NOTHING;
+    }
+
+    public void printTotalDiscount(EventProgressStatus eventProgressStatus) {
         System.out.println(TOTAL_DISCOUNT_MESSAGE);
-        System.out.println(StringFormatter.mapPriceToMinusString(totalDiscount));
+        System.out.println(getTotalDiscountMessage(eventProgressStatus));
+    }
+
+    public String getTotalDiscountMessage(EventProgressStatus eventProgressStatus) {
+        if(eventProgressStatus.isEventActivate()) {
+            return StringFormatter.mapPriceToMinusString(eventProgressStatus.getTotalDiscount());
+        }
+        return StringFormatter.mapPriceBasicToString(eventProgressStatus.getTotalDiscount());
     }
 
     public void printExpectPaymentPrice(int paymentPrice) {

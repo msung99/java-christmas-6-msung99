@@ -15,6 +15,7 @@ import christmas.repository.DateRepository;
 import christmas.view.InputView;
 import christmas.view.OutputView;
 import java.util.Map;
+import org.mockito.internal.matchers.Or;
 
 public class EventPlanController {
     private final InputView inputView = new InputView();
@@ -23,17 +24,25 @@ public class EventPlanController {
     public void runPlanner(){
         Date date = Date.of(inputView.readDate());
         Order order = orderMenu(date);
-        Amount amount = getTotalOrderAmounts(order.getOrder());;
+        Amount amount = getTotalOrderAmounts(order.getOrder());
+        EventProgressStatus eventProgressStatus = initEventStatus(amount, date, order);
 
-        if (!amount.isEventActivate()) {
-            // TODO: 이벤트 적용 없이, "없음" 의 혜택 내역을 보여주기
+        if (isEventActivate(amount)) {
+            applyDiscountEvent(eventProgressStatus);
         }
 
-        EventProgressStatus eventProgressStatus = presentChampagne(amount, date, order);
-        applyDiscountEvent(eventProgressStatus);
+        printEventResult(eventProgressStatus);
+    }
+
+    private void printEventResult(EventProgressStatus eventProgressStatus) {
+        outputView.printChampagne(eventProgressStatus);
         outputView.printDiscountEventLogs(eventProgressStatus);
-        outputView.printTotalDiscount(eventProgressStatus.getTotalDiscount());
+        outputView.printTotalDiscount(eventProgressStatus);
         outputView.printExpectPaymentPrice(eventProgressStatus.getExpectPaymentPrice());
+    }
+
+    private boolean isEventActivate(Amount amount) {
+        return amount.isEventActivate();
     }
 
     private Order orderMenu(Date date){
@@ -51,10 +60,11 @@ public class EventPlanController {
         return amount;
     }
 
-    private EventProgressStatus presentChampagne(Amount amount, Date date, Order order) {
-        EventProgressStatus eventProgressStatus = EventProgressStatus.of(amount, date, order);
-        outputView.printChampagne(eventProgressStatus);
-        return eventProgressStatus;
+    private EventProgressStatus initEventStatus(Amount amount, Date date, Order order) {
+        if(amount.isEventActivate()) {
+            return EventProgressStatus.of(amount, date, order);
+        }
+        return EventProgressStatus.createDeActivate(amount);
     }
 
     private void applyDiscountEvent(EventProgressStatus eventProgressStatus){

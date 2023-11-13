@@ -10,6 +10,7 @@ public class EventProgressStatus {
     private final Order order;
     private List<Discount> discounts = new ArrayList<>();
     private final boolean isPresentChampagne;
+    private boolean isEventActivate = true;
     private static final int PRESENT_CHAMPAGNE_MIN_PRICE = 120000;
     private static final int CHAMPAGNE_PRESENT_PRICE = 25000;
 
@@ -20,8 +21,20 @@ public class EventProgressStatus {
         this.isPresentChampagne = setPresentChampagne(amount);
     }
 
+    private EventProgressStatus(Amount amount) {
+        this.amount = amount;
+        this.date = null;
+        this.order = null;
+        this.isPresentChampagne = setPresentChampagne(amount);
+        this.isEventActivate = false;
+    }
+
     public static EventProgressStatus of(Amount amount, Date date, Order order) {
         return new EventProgressStatus(amount, date, order);
+    }
+
+    public static EventProgressStatus createDeActivate(Amount amount) {
+        return new EventProgressStatus(amount);
     }
 
     public int getTotalDiscount() {
@@ -73,5 +86,13 @@ public class EventProgressStatus {
 
     public int getExpectPaymentPrice() {
         return amount.getAmount() - getTotalDiscountWithoutPresent();
+    }
+
+    public Amount getAmount() {
+        return amount;
+    }
+
+    public boolean isEventActivate() {
+        return isEventActivate;
     }
 }
