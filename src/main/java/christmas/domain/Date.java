@@ -1,6 +1,8 @@
 package christmas.domain;
 
 import christmas.exception.DateOutOfRangeException;
+import christmas.exception.InvalidDateException;
+import christmas.exception.InvalidOrderException;
 import christmas.exception.NumberParseException;
 
 public class Date {
@@ -23,7 +25,7 @@ public class Date {
         try{
             Integer.parseInt(date);
         }catch (NumberFormatException e){
-            throw new NumberParseException();
+            throw new InvalidDateException();
         }
     }
 

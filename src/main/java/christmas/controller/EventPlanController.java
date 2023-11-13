@@ -21,7 +21,7 @@ public class EventPlanController {
     private final OutputView outputView = new OutputView();
 
     public void runPlanner(){
-        Date date = Date.of(inputView.readDate());
+        Date date = getDate();
         Order order = orderMenu(date);
         Amount amount = getTotalOrderAmounts(order.getOrder());
         EventProgressStatus eventProgressStatus = initEventStatus(amount, date, order);
@@ -38,6 +38,15 @@ public class EventPlanController {
         outputView.printDiscountEventLogs(eventProgressStatus);
         outputView.printTotalDiscount(eventProgressStatus);
         outputView.printExpectPaymentPrice(eventProgressStatus.getExpectPaymentPrice());
+    }
+
+    private Date getDate() {
+        try {
+            return Date.of(inputView.readDate());
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+            return getDate();
+        }
     }
 
     private boolean isEventActivate(Amount amount) {
