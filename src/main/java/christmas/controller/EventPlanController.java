@@ -14,6 +14,7 @@ import christmas.domain.progress.Order;
 import christmas.domain.progress.Quantity;
 import christmas.view.InputView;
 import christmas.view.OutputView;
+import java.util.List;
 import java.util.Map;
 
 public class EventPlanController {
@@ -81,10 +82,11 @@ public class EventPlanController {
     }
 
     private void applyDiscountEvent(EventProgressStatus eventProgressStatus) {
-        tryEachDiscount(eventProgressStatus, new ChirstmasDiscount());
-        tryEachDiscount(eventProgressStatus, new WeekdayDiscount());
-        tryEachDiscount(eventProgressStatus, new WeekendDiscount());
-        tryEachDiscount(eventProgressStatus, new SpecialDiscount());
+        List<Discount> discounts = List.of(new ChirstmasDiscount(), new WeekdayDiscount(),
+                new WeekendDiscount(), new SpecialDiscount());
+        for(Discount discount : discounts) {
+            tryEachDiscount(eventProgressStatus, discount);
+        }
     }
 
     private void tryEachDiscount(EventProgressStatus eventProgressStatus, Discount discount) {
